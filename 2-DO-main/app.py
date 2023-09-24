@@ -2,7 +2,7 @@ from flask import Flask,render_template,flash, redirect,url_for,session,logging,
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/kaitlyntorres/Desktop/2-DO-main/database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/kaitlyntorres/Desktop/2-DO/2-DO-main/database.db'
 db = SQLAlchemy(app)
 
 @app.route("/")
