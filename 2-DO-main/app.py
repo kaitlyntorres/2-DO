@@ -29,6 +29,30 @@ def register():
         db.session.add(register)
         db.session.commit()
 
+        return redirect(url_for("login"))
+    return render_template("register.html")
+
+
+@app.route("/login",methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        e = request.form["e"]
+        p = request.form["p"]
+        
+        login = register_users.query.filter_by(email=e, password=p).first()
+        if login is not None:
+            return redirect(url_for("main"))
+    return render_template("login.html")
+    
+def register():
+    if request.method == "POST":
+        e= request.form['e']
+        p = request.form['p']
+
+        register = register_users(email = e, password= p)
+        db.session.add(register)
+        db.session.commit()
+
         return redirect(url_for("main"))
     return render_template("register.html")
 
