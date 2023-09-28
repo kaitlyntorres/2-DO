@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <h1 align="center">Welcome {{ user.first_name }}, User ID: {{ user.id }}</h1>
+    <h1 align="center">Incidents</h1>
+    <hr>
+    <ul class="list-group list-group-flush" id="tasks">
+      {% for task in user.tasks %}
+      <li class="list-group-item">
+        <table>
+          <tr>
+            <th>ID </th>
+            <th>Date </th>
+            <th>Time </th>
+            <th>Title </th>
+            <th>Description </th>
+            <th>Tag </th>
+            <th>Priority</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>{{ task.id }}</td>
+            <td>{{ task.due_date}}</td>
+            <td>{{ task.due_time}}</td>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.tag }}</td>
+            <td>{{ task.priority }}</td>
+            <td>{{ task.status }}</td>
+          </tr>
+        </table>
+       <!--  <button type="button" class="close" onClick="deletetask({{ task.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </li>
+      {% endfor %}
+    </ul>
+    <h3>Add Comments About An Incident: </h3>
+    <form method="POST">
+      <textarea name="task" id="task" class="form-control"></textarea>
+      <br />
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Add Incident</button>
+      </div>
+    </form>
+    {% endblock %}
