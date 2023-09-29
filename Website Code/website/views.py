@@ -23,7 +23,7 @@ def home():
 
         ## NEED TO ADD NEW TASK TO DATABASE
         # EXAMPLE IS IN AUTH.PY, ALSO LOOK AT OLD VIEWS.PY ON CSC 530 SUPPORT TICKET WEBSITE GITHUB
-        new_task = Task(title=title,user_id=current_user.id,description=description,due_date=date,tag=tag,priority=priority)
+        new_task = Task(title=title,user_id=current_user.id,description=description,due_date=date,tag=tag,priority=priority,status=False)
         db.session.add(new_task)
         db.session.commit()
     return render_template("home.html", user=current_user)
