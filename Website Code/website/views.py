@@ -13,7 +13,17 @@ views = Blueprint('views', __name__)
 @views.route('/', methods = ['GET', 'POST'])
 @login_required
 def home():
-    
+    if request.method == "POST":
+        title = request.form.get('title')
+        description = request.form.get('description')
+        time = request.form.get('time')
+        date = request.form.get('date')
+        tag = request.form.get('tag')
+        priority = request.form.get('priority')
+
+        ## NEED TO ADD NEW TASK TO DATABASE
+        # EXAMPLE IS IN AUTH.PY, ALSO LOOK AT OLD VIEWS.PY ON CSC 530 SUPPORT TICKET WEBSITE GITHUB
+        mew_task = Task()
     return render_template("home.html", user=current_user)
 
 """ 

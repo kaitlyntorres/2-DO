@@ -8,10 +8,12 @@ class Task(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id')) #Foreign key is the user.id that created the task
     title = db.Column(db.String(1000)) #This will be the title of the task that was created
     description = db.Column(db.String(10000)) #The user can add notes and detail to tasks that they are creating
+    ## MIGHT HAVE TO CHANGE HOW THE TIME & DATE TYPES ARE HELD IN THE DATABASE
+    # MIGHT CHANGE TO STRING FOR THE MEAN TIME
     due_time = db.Column(db.Time) # HH:MM:SS.ssss format
-    due_date = db.Column(db.Date) # YYYY-MM-DD Format
+    due_date = db.Column(db.Date) # YYYY-MM-DD Format || The HTML is in MM/
     tag = db.Column(db.String(6)) 
-    priority = db.Column(db.String(6)) #should only be 'low', 'medium', 'high'
+    priority = db.Column(db.String(6)) #should only be 'Low', 'Medium', 'High'
     status = db.Column(db.Boolean) #False for incomplete, True for complete
 
 
