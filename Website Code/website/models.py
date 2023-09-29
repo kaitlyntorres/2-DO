@@ -10,8 +10,8 @@ class Task(db.Model):
     description = db.Column(db.String(10000)) #The user can add notes and detail to tasks that they are creating
     ## MIGHT HAVE TO CHANGE HOW THE TIME & DATE TYPES ARE HELD IN THE DATABASE
     # MIGHT CHANGE TO STRING FOR THE MEAN TIME
-    due_time = db.Column(db.Time) # HH:MM:SS.ssss format
-    due_date = db.Column(db.Date) # YYYY-MM-DD Format || The HTML is in MM/
+    #due_time = db.Column(db.DateTime()) # HH:MM:SS.ssss format
+    due_date = db.Column(db.String(40)) # YYYY-MM-DD Format || The HTML is in MM/
     tag = db.Column(db.String(6)) 
     priority = db.Column(db.String(6)) #should only be 'Low', 'Medium', 'High'
     status = db.Column(db.Boolean) #False for incomplete, True for complete
