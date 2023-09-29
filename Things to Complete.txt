@@ -2,17 +2,17 @@ Current Accounts:
 kurt@gmail.com
 12345678
 
-Sprint 1: 
-Users must be able to create an account for the web application
-Users must be able to log into the web application before being able to use its functionality
-Users must be able to add new tasks to todo list
-Date
-Time
-Title
-Description
-Tags
-Priority
-Users must be able to view tasks
+✅ Sprint 1: 
+✅ - Users must be able to create an account for the web application
+✅ - Users must be able to log into the web application before being able to use its functionality
+✅ - Users must be able to add new tasks to todo list
+    - Date
+    - Time
+    - Title
+    - Description
+    - Tags
+    - Priority
+✅ - Users must be able to view tasks
 
 Sprint 2: 
 Users must be able to delete any tasks on the todo list
