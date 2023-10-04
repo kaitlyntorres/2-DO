@@ -10,7 +10,7 @@ Our goal was to create a web application where users can keep track of their upc
 Users can also filter and sort tasks by day and time as well as mark tasks as complete or incomplete
 
 # Usage
-As this is for our Software Testing final project, we are using Flask to generate a localhost and launching it from there.
+Run main.py and click on the localhost
 
 # Guide
 Upon launching the app, users will be able to login if they have previosuly created an account or signup if they are a new user. Once the user is auththenticated, they will be able to see all the tasks they
