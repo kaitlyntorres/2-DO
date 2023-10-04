@@ -24,20 +24,20 @@ Users must be able to add new tasks to todo list = <b>COMPLETE</b> <br />
 Users must be able to create an account for the web application = <b>COMPLETE</b><br />
 Users must be able to log into the web application before being able to use its functionality = <b>COMPLETE</b>
 
-## Sprint 2
+## Sprint 2 = IN PROGRESS
 Users must be able to delete any tasks on the todo list <br />
 Users must be able to edit any tasks on todo list<br />
 Tasks must be sorted based on day and time
 
-## Sprint 3
+## Sprint 3 = PENDING
 Users should be able to mark tasks as complete or incomplete <br />
 
-## Sprint 4
+## Sprint 4 = PENDING
 Users could be able to see a list of tasks that have already passed (task history) <br />
 Users could get reminders when their tasks is approaching<br />
 
 
-## Sprint 5
+## Sprint 5 = PENDING
 Users could categorize tasks and sort based on tags <br />
 Users could export tasks to CSV<br />
 Users could have tasks with a specified date added to a calendar
