@@ -23,13 +23,17 @@ with the other tasks to view. Users will have the ability to delete any tasks th
 Users must be able to add new tasks to todo list = <b>COMPLETE</b> <br />
 Users must be able to create an account for the web application = <b>COMPLETE</b><br />
 Users must be able to log into the web application before being able to use its functionality = <b>COMPLETE</b>
+Users must be able to view all tasks they added = <b>COMPLETE</b>
+Users’ information (task data) must be stored with the corresponding user account = <b>COMPLETE</b>
 
 ## Sprint 2 = IN PROGRESS
 Users must be able to delete any tasks on the todo list <br />
-Users must be able to edit any tasks on todo list<br />
-Tasks must be sorted based on day and time
+Users must be able to edit any tasks on todo list <br />
+Tasks must be sorted based on day and time <br />
+Users should be able to give each tasks a priority  (high, moderate, low)
 
 ## Sprint 3 = PENDING
+Users should be able to filter out tasks by date, time, etc <br />
 Users should be able to mark tasks as complete or incomplete <br />
 
 ## Sprint 4 = PENDING
@@ -44,5 +48,3 @@ Users could have tasks with a specified date added to a calendar
 
 # Status
 This Project is entering Sprint 2 of production
-
-
