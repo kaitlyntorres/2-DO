@@ -3,7 +3,7 @@
 Members:<br />
 Kaitlyn Torres <br />
 Kurt Muller<br />
-Charles Howard
+John Perez
 
 # Objective
 Our goal was to create a web application where users can keep track of their upcoming tasks in a todolist format. Users will be able to login and add, view, edit, or delete tasks.
