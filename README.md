@@ -22,8 +22,8 @@ with the other tasks to view. Users will have the ability to delete any tasks th
 ## Sprint 1 = COMPLETE
 Users must be able to add new tasks to todo list = <b>COMPLETE</b> <br />
 Users must be able to create an account for the web application = <b>COMPLETE</b><br />
-Users must be able to log into the web application before being able to use its functionality = <b>COMPLETE</b>
-Users must be able to view all tasks they added = <b>COMPLETE</b>
+Users must be able to log into the web application before being able to use its functionality = <b>COMPLETE</b> <br />
+Users must be able to view all tasks they added = <b>COMPLETE</b> <br />
 Users’ information (task data) must be stored with the corresponding user account = <b>COMPLETE</b>
 
 ## Sprint 2 = IN PROGRESS
