@@ -1,0 +1,77 @@
+{% extends "base.html" %} {% block title %}Admin View{% endblock %} {% block content
+    %}
+    <h1 align="center">Welcome {{ user.first_Name }}, Admin ID: {{ user.id }}</h1>
+    <h1 align="center">Incidents</h1>
+    <hr>
+    <ul class="list-group list-group-flush" id="notes">
+      {% for note in notes %} <!-- was Note.query.all() to get all notes but Note table is not accessed where I need it, Have to look for it, currently user.notes allows you to get notes associated with just the current user -->
+      <li class="list-group-item">
+        <table>
+          <tr>
+            <th>ID </th>
+            <th>Date </th>
+            <th>User ID </th>
+            <th>User Comments </th>
+            <th>Admin Notes</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>{{ note.id }}</td>
+            <td>{{ note.date}}</td>
+            <td>{{ note.user_id }}</td>
+            <td>{{ note.data }}</td>
+            <td>{{ note.admin_notes }}</td>
+            <td>{{ note.status }}</td>
+          </tr>
+        </table>
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+      {% endfor %}
+    </ul>
+    <!--<h1>Create New Incident</h1>
+    <form method="POST" name="note-submit">
+      <textarea name="note" id="note" class="form-control"></textarea>
+      <br />
+      <div align="center">
+        <button id="note-submit" type="submit" class="btn btn-primary">Add Note</button>
+      </div>
+    </form>-->
+    <h3>Edit Existing Incident</h3>
+    <form method="POST" name="note-edit">
+      <div class="form-group">
+        <label for="note_id">Enter Incident ID</label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="note_id" 
+            name="note_id" 
+            placeholder="ID" 
+        />
+      </div>
+      <div class="form-group">
+        <label for="admin_comments">Admin Comments</label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="admin_comments" 
+            name="admin_comments" 
+            placeholder="Admin Comments" 
+        />
+      </div>
+      <div class="form-group">
+        <label for="note_status">Incident Status</label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="note_status" 
+            name="note_status" 
+            placeholder="Open, Closed, or In Progress" 
+        />
+      </div>
+      <br />
+      <button id="note-edit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br />
+    {% endblock %}

@@ -1,0 +1,36 @@
+Current Accounts:
+kurt@gmail.com
+12345678
+
+Sprint 1: 
+Users must be able to create an account for the web application
+Users must be able to log into the web application before being able to use its functionality
+Users must be able to add new tasks to todo list
+Date
+Time
+Title
+Description
+Tags
+Priority
+Users must be able to view tasks
+
+Sprint 2: 
+Users must be able to delete any tasks on the todo list
+Users must be able to edit any tasks on todo list
+Tasks must be sorted based on day and time
+Users should be able to give each tasks a priority  (high, moderate, low)
+
+Sprint 3: 
+Users must be able to view all tasks they added
+Users’ information (task data) must be stored with the corresponding user account
+Users should be able to filter out tasks by date, time, etc
+Users should be able to mark tasks as complete or incomplete
+
+Sprint 4: 
+Users could be able to see a list of tasks that have already passed (task history)
+Users could get reminders when their tasks is approaching
+
+Sprint 5: 
+Users could categorize tasks and sort based on tags
+Export tasks to CSV
+Have tasks with a specified date added to a calendar
