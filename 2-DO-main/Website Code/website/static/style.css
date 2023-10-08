@@ -4,6 +4,8 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+
 :root {
     --blue: #1ba098;
     --indigo: #6610f2;
@@ -11415,6 +11417,11 @@ a.text-dark:hover {
     .table .thead-dark th {
         color: inherit;
         border-color: #dee2e6
+    }
+
+    .deletepic{
+        max-width: 50%;
+        max-height: 50%
     }
 }
 
