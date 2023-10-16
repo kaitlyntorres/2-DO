@@ -41,6 +41,32 @@ def delete_task(t):
         flash(msg_text)
     return redirect(url_for('views.home'))
 
+@views.route('/edit_task/<t>')
+@login_required
+def edit_task(t):
+    task = Task.query.filter_by(id=t).first()
+    return render_template('editform.html',task=task, user=current_user)
+
+@views.route('/editform', methods = ['GET', 'POST'])
+@login_required
+def editform():
+    taskid=request.args.get('taskid',None)
+
+    task = Task.query.filter_by(id=taskid).first()
+
+    if request.method == "POST":
+        task.title = request.form.get('title')
+        task.description = request.form.get('description')
+        task.date = request.form.get('date')
+        task.tag = request.form.get('tag')
+        task.priority = request.form.get('priority')
+
+        db.session.commit()
+        return redirect(url_for('views.home'))
+
+    return render_template("editform.html", user=current_user)
+
+
 
 
 
