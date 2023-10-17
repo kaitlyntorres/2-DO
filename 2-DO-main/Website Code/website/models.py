@@ -14,7 +14,7 @@ class Task(db.Model):
     due_date = db.Column(db.String(40)) # YYYY-MM-DD Format || The HTML is in MM/
     tag = db.Column(db.String(6)) 
     priority = db.Column(db.String(6)) #should only be 'Low', 'Medium', 'High'
-    status = db.Column(db.Boolean) #False for incomplete, True for complete
+    status = db.Column(db.Boolean, default=False) #False for incomplete, True for complete
 
 
 class User(db.Model, UserMixin):

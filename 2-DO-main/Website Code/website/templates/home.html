@@ -1,89 +1,130 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
-    %}
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
 
-    <h1 align="center">Welcome {{ user.first_name }}, User ID: {{ user.id }}</h1>
-    <h1 align="center">Tasks</h1>
-    <hr>
-    <ul class="list-group list-group-flush" id="tasks">
+<h1 align="center">Welcome {{ user.first_name }}, User ID: {{ user.id }}</h1>
+<h1 align="center">Tasks</h1>
+<hr>
+<ul class="list-group list-group-flush" id="tasks">
+  <table class="searchable sortable" id="task-table">
+    <thead>
+      <tr>
+        <th ><a href="javascript:sortTable(0)">ID</a></th>
+        <th ><a href="javascript:sortTable(1)">Date and Time</a></th>
+        <th  ><a href="javascript:sortTable(2)">Title</a></th>
+        <th  ><a href="javascript:sortTable(3)">Description</a></th>
+        <th ><a href="javascript:sortTable(4)">Tag</a></th>
+        <th ><a href="javascript:sortTable(5)">Priority</a></th>
+        <th  ><a href="javascript:sortTable(6)">Status</a></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
       {% for task in user.tasks %}
-      <li class="list-group-item">
-        <table class=”sortable”>
-          <thead>
-          <tr>
-            <th>ID </th>
-            <th>Date and Time </th>
-            <th>Title </th>
-            <th>Description </th>
-            <th>Tag </th>
-            <th>Priority</th>
-            <th>Status</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{ task.id }}</td>
-            <td>{{ task.due_date}}</td>
-            <td>{{ task.title }}</td>
-            <td>{{ task.description }}</td>
-            <td>{{ task.tag }}</td>
-            <td>{{ task.priority }}</td>
-            <td>{{ task.status }}</td>
-            <td><a href="{{ url_for('views.delete_task', t=task.id) }}"
-  onclick="return confirm('Do you want to permanently delete task {{ task.id }}?');" title="Delete Task">
-  <img class="deletepic"  style="max-width: 30%; max-height: 30%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAilBMVEX/AAD/////oKD/MzP/CQn//Pz/6en/wMD/urr/tbX/BAT/RUX/rKz/YWH/QUH/ior/8fH/pqb/qqr/9fX/3d3/1dX/eHj/Z2f/cXH/Gxv/8/P/sbH/zMz/FRX/gYH/mpr/lZX/KCj/UlL/yMj/Ojr/TU3/JCT/a2v/RET/hob/XFz/4eH/WFj/Ly/KNXz8AAAEx0lEQVR4nO3d21riMBQF4BRoFTkVSpGTgFLFEXn/1xsOMwgNO0mbNklxres9mfxaW5qEbzOvkPhxu1ZsBvOomKmxAsaIHjusjLzXwgJmV4Bw+VGK75iFvlFbGJfoO2RmW7gs17fPxrcqHJUOZKyrR9QTmgDuifaENSNAxp5tCWNDQMYGloSJMSHTeGhoCGfmgGxsRfhkUKjxS8wvXJsEspUF4diosG5B+GpUyIbGhUOzQPZoXDg3LOwZF7YNC3M/Lyoj3Ny9sAMhhBBmFja6rSz5nFRM2BtOfc/PkiioCT8luSUc5VxZ6VdF2Mw7puijoEvCdt4hPRHRIaHG6/g+gwoINdfhu84L9X6F9OqPO8KHvAP+S+i8MMg74HlGrgvzjnfO590LiVsNhGQgJANh7kCYNRCSgTB3IMwaCMncv7BZlrB1e9zcJ06IGT0u6qwhDiGU/Ct5iHElAz9Nxu3bxzVvCvtGDyEUlz9TNWFIXCcVyMdcRRjYnqZW+M1wThjKNhAcTywVbmxPUTOv6R2FtNDcabyy0pcIn21PUD9ioW97egVkLhSaPaxWTvpCoem96zIiFor2KKuS3y6k3hiqFLHQ9InDMtIWCr0X2/PTTyAWrmzPTzvvnlhIbVBWJ+kXKO6TN3lUoCLhdtn590Mz32UqK/zXwG6845s9hF9sEv401q11mupeqKMbmpsrUWGvii/6jc32FoZYTfTjWe9fFLBvo97iS2kWh8qO0jP3WEkuLf7k/zT7c+KoknwFty77P5anR2zYls68d5pE1JdWrk5jTpvSSun8tYXJz0cIX/x7rF9UipcSdsqVBoStq4Vm0ZPm+j4uqkyuxlzYFb6kLn7q3B3jTvTRlY3UB8t3q8L011fppbp0Jf0WU1OuNCHkqqkdgQn3KKb+aBtc5bdFIf+EpRZ61Cv5bTTha3nJQv7AM3WZptdp6YuPH3NrUcgfJqX2dfjT7dS8+b0V4SKuw8KA2KSEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEUElItKu6HyHVo8QtId9bhWqZvOQqqX4t6VZBnje3KPziqldEJd8fZ0lUprtsel7NopBN09WvVCXX9y2hKgPlMU0IF6liuut1uh0S3eJIvdKEMNXXlLo/HrK+rhSMeX3/CsTt80oXsviiNCSvvHRlJBz18scWUl3AjAnZ7FwpvOexy9Zrc0nbyJ97dCxrgGhAyJJZGHl++CBsj3bMrnmsXL9JK5PBqbIjrTQhPEy9Jbw+y6w0JLQYCCH8FcKdbYM4BQjlt3arKUDodq/1SQFC6i3HjfBvZdmFdANcF8K/WWcXRkqNwm1lWIDQ6T/EhGsenEfo8mXKLxTlEYp7KlvNJJLPXkUoboxtM3x35HxCr2dbQqSlMnklIdlP3HK49bv8wtDJj9+xfOLKQieJakBVoRe5dqG+bBVnriqUrK0bz1j+qM8s9IKxbdY534pXaEah521XXdu2fXaLDL6Mwn2m60HNZvoPgfL1ecpfsDef7iumWj0AAAAASUVORK5CYII="></a></td>
-            <td><a href="/editform?taskid={{task.id}}" >Edit Task</a></td>
-          </tr>
-          </tbody>
-        </table>
-       <!--  <button type="button" class="close" onClick="deletetask({{ task.id }})">
-          <span aria-hidden="true">&times;</span>
-        </button> -->
-      </li>
+      <tr>
+        <td>{{ task.id }}</td>
+        <td>{{ task.due_date }}</td>
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.tag }}</td>
+        <td>{{ task.priority }}</td>
+        
+        <td>
+          <input
+          type='checkbox'
+          id='complete'
+          class='product'
+          name='data_{{False}}'
+          value="{{False}}"
+          >
+        </td>
+
+        <td><a href="{{ url_for('views.delete_task', t=task.id) }}"
+            onclick="return confirm('Do you want to permanently delete task {{ task.id }}?');" title="Delete Task">
+            <img class="deletepic" style="max-width: 30%; max-height: 30%"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAilBMVEX/AAD/////oKD/MzP/CQn//Pz/6en/wMD/urr/tbX/BAT/RUX/rKz/YWH/QUH/ior/8fH/pqb/qqr/9fX/3d3/1dX/eHj/Z2f/cXH/Gxv/8/P/sbH/zMz/FRX/gYH/mpr/lZX/KCj/UlL/yMj/Ojr/TU3/JCT/a2v/RET/hob/XFz/4eH/WFj/Ly/KNXz8AAAEx0lEQVR4nO3d21riMBQF4BRoFTkVSpGTgFLFEXn/1xsOMwgNO0mbNklxres9mfxaW5qEbzOvkPhxu1ZsBvOomKmxAsaIHjusjLzXwgJmV4Bw+VGK75iFvlFbGJfoO2RmW7gs17fPxrcqHJUOZKyrR9QTmgDuifaENSNAxp5tCWNDQMYGloSJMSHTeGhoCGfmgGxsRfhkUKjxS8wvXJsEspUF4diosG5B+GpUyIbGhUOzQPZoXDg3LOwZF7YNC3M/Lyoj3Ny9sAMhhBBmFja6rSz5nFRM2BtOfc/PkiioCT8luSUc5VxZ6VdF2Mw7puijoEvCdt4hPRHRIaHG6/g+gwoINdfhu84L9X6F9OqPO8KHvAP+S+i8MMg74HlGrgvzjnfO590LiVsNhGQgJANh7kCYNRCSgTB3IMwaCMncv7BZlrB1e9zcJ06IGT0u6qwhDiGU/Ct5iHElAz9Nxu3bxzVvCvtGDyEUlz9TNWFIXCcVyMdcRRjYnqZW+M1wThjKNhAcTywVbmxPUTOv6R2FtNDcabyy0pcIn21PUD9ioW97egVkLhSaPaxWTvpCoem96zIiFor2KKuS3y6k3hiqFLHQ9InDMtIWCr0X2/PTTyAWrmzPTzvvnlhIbVBWJ+kXKO6TN3lUoCLhdtn590Mz32UqK/zXwG6845s9hF9sEv401q11mupeqKMbmpsrUWGvii/6jc32FoZYTfTjWe9fFLBvo97iS2kWh8qO0jP3WEkuLf7k/zT7c+KoknwFty77P5anR2zYls68d5pE1JdWrk5jTpvSSun8tYXJz0cIX/x7rF9UipcSdsqVBoStq4Vm0ZPm+j4uqkyuxlzYFb6kLn7q3B3jTvTRlY3UB8t3q8L011fppbp0Jf0WU1OuNCHkqqkdgQn3KKb+aBtc5bdFIf+EpRZ61Cv5bTTha3nJQv7AM3WZptdp6YuPH3NrUcgfJqX2dfjT7dS8+b0V4SKuw8KA2KSEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEUElItKu6HyHVo8QtId9bhWqZvOQqqX4t6VZBnje3KPziqldEJd8fZ0lUprtsel7NopBN09WvVCXX9y2hKgPlMU0IF6liuut1uh0S3eJIvdKEMNXXlLo/HrK+rhSMeX3/CsTt80oXsviiNCSvvHRlJBz18scWUl3AjAnZ7FwpvOexy9Zrc0nbyJ97dCxrgGhAyJJZGHl++CBsj3bMrnmsXL9JK5PBqbIjrTQhPEy9Jbw+y6w0JLQYCCH8FcKdbYM4BQjlt3arKUDodq/1SQFC6i3HjfBvZdmFdANcF8K/WWcXRkqNwm1lWIDQ6T/EhGsenEfo8mXKLxTlEYp7KlvNJJLPXkUoboxtM3x35HxCr2dbQqSlMnklIdlP3HK49bv8wtDJj9+xfOLKQieJakBVoRe5dqG+bBVnriqUrK0bz1j+qM8s9IKxbdY534pXaEah521XXdu2fXaLDL6Mwn2m60HNZvoPgfL1ecpfsDef7iumWj0AAAAASUVORK5CYII="></a>
+        </td>
+        <td><a href="/editform?taskid={{task.id}}">Edit Task</a></td>
+      </tr>
       {% endfor %}
-    </ul>
-    <h3>Add Information About Your Task: </h3>
-    <form method="POST">
-      <h1>Task</h1>
-<!--       <textarea name="task" id="task" class="form-control"></textarea>
-      <br />
-      <div>
-        <button type="submit" class="btn btn-primary">Title</button>
-      </div> -->
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" name="title" placeholder="Add a Title" />
-      </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea type="text" class="form-control" id="description" name="description" placeholder="Add a Description"></textarea>
-      </div>
-      <!--  WOULD POSSIBLY NEED TO CHANGE FROM FORMAT IN DATABASE to HH:MM from current HH:MM:SS.ssss, CAN CHECK IF THE CURRENT IMPLEMENTATION WORKS -->
-      <div class="form-group">
-        <label for="date">Select a Date (YYYY-MM-DD) and Time (HH:MM)</label>
-        <input type="datetime-local" class="form-control" id="date" name="date" >
-      </div>
+    </tbody>
+  </table>
+</ul>
+<h3>Add Information About Your Task: </h3>
+<form method="POST">
+  <h1>Task</h1>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" placeholder="Add a Title" />
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea type="text" class="form-control" id="description" name="description"
+      placeholder="Add a Description"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="date">Select a Date (YYYY-MM-DD) and Time (HH:MM)</label>
+    <input type="datetime-local" class="form-control" id="date" name="date">
+  </div>
+  <div class="form-group">
+    <label for="tag">Tag</label>
+    <input type="text" class="form-control" id="tag" name="tag" placeholder="#..." />
+  </div>
+  <div class="form-group">
+    <label for="priority">Priority</label>
+    <select class="form-control" id="priority" name="priority">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+  </div>
 
-      <div class="form-group">
-        <label for="tag">Tag</label>
-        <input type="text" class="form-control" id="tag" name="tag" placeholder="#..." />
-      </div>
-      <!-- NEED TO CHANGE THIS TO ONLY HAVE 'Low', 'Medium', 'High' OPTIONS
-      MAYBE JUST A DIAL OR RADIO BUTTONS (WHICH SUCK)-->
-      <div class="form-group">
-        <label for="priority">Priority</label>
-        <select class="form-control" id="priority" name="priority">
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
-        </select>
-      </div>
+  <div>
+    <button type="submit" class="btn btn-primary">Add Task</button>
+  </div>
+</form>
 
-    <div>
-      <button type="submit" class="btn btn-primary">Add Task</button>
-    </div>
-    </form>
-    
+<script>
+  /* REFERENCED FROM W3SCHOOLS*/
 
-    
-    {% endblock %}
+  function sortTable(num) {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("task-table");
+  switching = true;
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[num];
+      y = rows[i + 1].getElementsByTagName("TD")[num];
+      // Check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        // If so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+</script>
+
+
+
+
+{% endblock %}
