@@ -27,10 +27,10 @@ Users must be able to view all tasks they added = <b>COMPLETE</b> <br />
 Users’ information (task data) must be stored with the corresponding user account = <b>COMPLETE</b>
 
 ## Sprint 2 = DONE
-Users must be able to delete any tasks on the todo list <br />
-Users must be able to edit any tasks on todo list <br />
-Tasks must be sorted based on day and time <br />
-Users should be able to give each tasks a priority  (high, moderate, low)
+Users must be able to delete any tasks on the todo list = <b>COMPLETE</b> <br />
+Users must be able to edit any tasks on todo list = <b>COMPLETE</b> <br />
+Tasks must be sorted based on day and time = <b>COMPLETE</b> <br />
+Users should be able to give each tasks a priority  (high, moderate, low) = <b>COMPLETE</b>
 
 ## Sprint 3 = IN PROGRESS
 Users should be able to filter out tasks by date, time, etc <br />
