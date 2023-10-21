@@ -34,7 +34,7 @@ Users should be able to give each tasks a priority  (high, moderate, low) = <b>C
 
 ## Sprint 3 = IN PROGRESS
 Users should be able to filter out tasks by date, time, etc <br />
-Users should be able to mark tasks as complete or incomplete <br />
+Users should be able to mark tasks as complete or incomplete  = <b>COMPLETE</b> <br />
 
 ## Sprint 4 = PENDING
 Users could be able to see a list of tasks that have already passed (task history) <br />
