@@ -4,6 +4,7 @@ from .models import Task
 from . import db
 import json
 import jsonify
+import sys
 
 
 #This application has a bunch of URLs defined here so that we can have our views defined in several files and not a single one
@@ -65,6 +66,28 @@ def editform():
         return redirect(url_for('views.home'))
 
     return render_template("editform.html", user=current_user)
+
+
+@views.route('/complete_task/',methods=["POST"])
+@login_required
+def complete_task():
+    #grabs dict from home.html
+    output=request.get_json()
+    #retrieves task id
+    task_id= output.get('task')
+    #retrieves boolean value
+    bool=output.get('bool')
+    #grabs row in db where task = id
+    task = Task.query.filter_by(id=task_id).first()
+    #changes status of row to the boolean passed in
+    task.status = bool
+    db.session.commit()
+   
+    return render_template("editform.html", user=current_user)
+
+    
+
+    
 
 
 
