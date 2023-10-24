@@ -9,11 +9,11 @@ db = SQLAlchemy()
 DB_NAME = 'database.db'
 
 #This __init__.py makes the website folder a python package and allows us to inport it into our main.py
-def create_app():
+def create_app(database_uri="sqlite:///" + DB_NAME):
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'THIS IS THE KEY FOR THE APP' #can be anything you want but you want to hide this
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}' #Telling flask where the database is located
-    db.init_app(app)
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_uri #Telling flask where the database is located
+    db.init_app(app) 
 
     from .views import views
     from .auth import auth
