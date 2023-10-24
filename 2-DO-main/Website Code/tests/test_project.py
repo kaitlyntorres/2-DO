@@ -1,8 +1,8 @@
-from website.models import User
+from website.models import User, Task
 from werkzeug.security import generate_password_hash, check_password_hash
 
 # Tests that the home page ("/") works properly
-def test_home(client, app):
+def test_home(client):
     # Create a user
     response = client.post("/sign-up", data={"email": "test@test.com", "first_name": "TestFirstName", "last_name":"TestLastName", "password":"testpassword"})
 
@@ -12,6 +12,9 @@ def test_home(client, app):
     response = client.get("/")
 
     assert response.status_code == 302
+
+#def test_logout(client):
+
 
 # Testing User Creation
 def test_sign_up(client, app):
@@ -28,7 +31,6 @@ def test_sign_up(client, app):
         assert User.query.first().first_name == "TestFirstName"
         assert User.query.first().last_name == "TestLastName"
         assert check_password_hash(User.query.first().password, "testpassword") == True
-
 
 # Attemping to login when the account does not exist
 def test_invalid_login(client):
@@ -48,7 +50,26 @@ def test_valid_login(client):
 
     response = client.get("/")
 
-    assert response.status_code == 302
+    assert response.status_code == 302 
+
+# NEED TO FIND A WAY TO GET A USER LOGGED IN SO THAT WE CAN ADD TASKS
+def test_task_creation(client, app):
+    client.post("/sign-up", data={"email": "test@test.com", "first_name": "TestFirstName", "last_name":"TestLastName", "password":"testpassword"})
+
+    # Login the user
+    client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
+
+    client.post("/", data={"title":"testtitle", "description":"test description", "date":"2003-10-10T12:30", "tag":"CSC678", "priority":"Low"})
+
+    with app.app_context():
+        assert Task.query.count() == 1
+        assert Task.query.first().title == "testtitle"
+        assert Task.query.first().description == "test description"
+        assert Task.query.first().date == "2003-10-10 12:30"
+        assert Task.query.first().tag == "CSC678"
+        assert Task.query.first().priority == "Low"
+        assert Task.query.first().status == 0
+        
 
 
 """ 

@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, flash,redirect, url_for
 from flask_login import login_required, current_user
+import datetime
 from .models import Task
 from . import db
 import json
@@ -18,14 +19,16 @@ def home():
     if request.method == "POST":
         title = request.form.get('title')
         description = request.form.get('description')
-        date = request.form.get('date')
-        tag = request.form.get('tag')
-        priority = request.form.get('priority')
+        date = request.form.get('date') #'YYYY-MM-DDTHH:MM'
+        tag = request.form.get('tag') 
+        priority = request.form.get('priority') #'Low', 'Medium', 'High'
 
+        # Fixing Date Format || Switing from 'YYYY-MM-DDTHH:MM' to 'YYYY-MM-DD HH:MM'
+        formatted_date = date.replace("T", " ")
 
         ## NEED TO ADD NEW TASK TO DATABASE
         # EXAMPLE IS IN AUTH.PY, ALSO LOOK AT OLD VIEWS.PY ON CSC 530 SUPPORT TICKET WEBSITE GITHUB
-        new_task = Task(title=title,user_id=current_user.id,description=description,due_date=date,tag=tag,priority=priority)
+        new_task = Task(title=title,user_id=current_user.id,description=description,due_date=formatted_date,tag=tag,priority=priority)
         db.session.add(new_task)
         db.session.commit()
     return render_template("home.html", user=current_user)
