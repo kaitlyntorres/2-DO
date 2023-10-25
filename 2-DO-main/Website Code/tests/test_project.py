@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import json
 
 """ *** TEST CASES *** """
+""" *** Sprint 1 & 2 *** """
 
 # L-01 Ensure that a user can successfully create an account
 def test_sign_up(client, app):
@@ -74,6 +75,30 @@ def test_task_creation(client, app):
         assert Task.query.first().tag == "CSC678"
         assert Task.query.first().priority == "Low"
         assert Task.query.first().status == 0
+
+# T-02 Ensure that the user can view a list of tasks
+def test_viewing_tasks(client, app):
+    # Create a user
+    client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
+
+    # Login the user
+    client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
+
+    # Create a task
+    client.post("/", data={"title": "task1", "description": "desc1", "date": "2003-10-10 12:30", "tag": "CSC678", "priority": "Low"})
+
+    # Create a second task with different data
+    client.post("/", data={"title": "task2", "description": "desc2", "date": "2003-10-10 12:00", "tag": "CSC680", "priority": "High"})
+
+    # Send a GET request to the task list page
+    response = client.get("/")
+
+    # Check if the response contains task titles and descriptions
+    assert b'task1' in response.data
+    assert b'desc1' in response.data
+    assert b'task2' in response.data
+    assert b'desc2' in response.data
+
 
 # T-04 Ensure that a user can delete a task
 def test_task_deletion(client, app):
@@ -192,7 +217,77 @@ def test_sorting(client, app):
     expected_sorted_rows = extract_and_sort_rows(response.data.decode("utf-8"), sort_column=6)
     assert sorted_rows == expected_sorted_rows
 
-# T-07 Ensure that a user can filter by column values
+""" *** Sprint 3 Test Cases *** """
+
+""" # T-07 Ensure that a user can filter by column values
+def test_search_tasks(client, app):
+    # Create a user
+    client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
+
+    # Login the user
+    client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
+
+    # Create tasks
+    client.post("/", data={"title": "task1", "description": "desc1", "date": "2003-10-10 12:30", "tag": "CSC678", "priority": "Low"})
+    client.post("/", data={"title": "task2", "description": "desc2", "date": "2003-10-10 12:00", "tag": "CSC680", "priority": "High"})
+    client.post("/", data={"title": "task3", "description": "desc3", "date": "2003-10-11 13:00", "tag": "CSC678", "priority": "Medium"})
+
+    # Send a GET request to the task list page
+    response = client.get("/")
+
+    # Check if the response status code is 200 (OK)
+    #assert response.status_code == 200
+
+    # Check if all tasks are displayed
+    assert b'task1' in response.data
+    assert b'task2' in response.data
+    assert b'task3' in response.data
+
+    # Test searching by title
+    search_response = client.post("/", data={"columnSelect": "title", "taskSearch": "task1"})
+
+    # Check if the response status code is 200 (OK)
+    #assert search_response.status_code == 200
+
+    # Check if the response contains the searched task
+    assert b'task1' in search_response.data
+    assert b'task2' not in search_response.data
+    assert b'task3' not in search_response.data
+
+    # Test searching by description
+    search_response = client.post("/", data={"columnSelect": "description", "taskSearch": "desc2"})
+
+    # Check if the response status code is 200 (OK)
+    #assert search_response.status_code == 200
+
+    # Check if the response contains the searched task
+    assert b'task2' in search_response.data
+    assert b'task1' not in search_response.data
+    assert b'task3' not in search_response.data
+
+    # Test searching by tag
+    search_response = client.post("/", data={"columnSelect": "tag", "taskSearch": "CSC678"})
+
+    # Check if the response status code is 200 (OK)
+    #assert search_response.status_code == 200
+
+    # Check if the response contains the searched task
+    assert b'task1' in search_response.data
+    assert b'task3' in search_response.data
+    assert b'task2' not in search_response.data
+
+    # You can add more search test cases based on different columns
+
+    # Test searching by priority
+    search_response = client.post("/", data={"columnSelect": "priority", "taskSearch": "Low"})
+
+    # Check if the response status code is 200 (OK)
+    #assert search_response.status_code == 200
+
+    # Check if the response contains the searched task
+    assert b'task1' in search_response.data
+    assert b'task2' not in search_response.data
+    assert b'task3' not in search_response.data """
 
 # T-08 Ensure that a user can mark tasks as complete/incomplete
 def test_complete_task(client, app):
@@ -268,7 +363,6 @@ Login
 Tasks
 ✅ T-01 Ensure that user can successfully add a task
 ✅ T-02 Ensure that the user can view a list of tasks
-    - Manually
 (DELETED) T-03 Ensure that a user can’t add a task due on a past date and/or time 
     - Some task managing applications, like Apple Reminders, allows for creation 
     of past tasks
