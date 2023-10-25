@@ -1,22 +1,12 @@
 # Import necessary modules and models
+from flask_login import current_user
 from website.models import User, Task
 from werkzeug.security import generate_password_hash, check_password_hash
 import json
 
-# Test the home page ("/") route
-def test_home(client):
-    # Create a user
-    response = client.post("/sign-up", data={"email": "test@test.com", "first_name": "TestFirstName", "last_name":"TestLastName", "password":"testpassword"})
+""" *** TEST CASES *** """
 
-    # Login the user
-    client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
-
-    response = client.get("/")
-
-    # Assert that the response status code is a 302 (redirect)
-    assert response.status_code == 302
-
-# Test the user creation ("/sign-up") route
+# L-01 Ensure that a user can successfully create an account
 def test_sign_up(client, app):
 
     # Create a user
@@ -31,15 +21,7 @@ def test_sign_up(client, app):
         assert User.query.first().last_name == "TestLastName"
         assert check_password_hash(User.query.first().password, "testpassword") == True
 
-# Test invalid login attempt
-def test_invalid_login(client):
-    
-    response = client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
-
-    # Assert that the response status code is 200 (an unsuccessful login attempt)
-    assert response.status_code == 200 
-
-# Test valid login
+# L-02 Ensure that a user can successfully login to their previously created account
 def test_valid_login(client):
     response = client.post("/sign-up", data={"email": "test@test.com", "first_name": "TestFirstName", "last_name":"TestLastName", "password":"testpassword"})
 
@@ -50,7 +32,28 @@ def test_valid_login(client):
     # Assert that the response status code is 302 (a successful login attempt)
     assert response.status_code == 302 
 
-# Test task creation
+# L-03 Ensure that a user can’t log into their account with an incorrect password
+def test_incorrect_password(client, app):
+
+    # Create a user
+    client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName":"TestLastName", "password1":"testpassword", "password2":"testpassword"})
+
+    # Attempt login with an incorrect password
+    response = client.post("/login", data={"email": "test@test.com", "password": "wrongpassword"})
+
+    with app.app_context():
+        assert response.status_code == 200 
+        assert current_user != User.query.first()
+
+# L-04 Non-existent user
+def test_invalid_login(client):
+    
+    response = client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
+
+    # Assert that the response status code is 200 (an unsuccessful login attempt)
+    assert response.status_code == 200 
+
+# T-01 Ensure that user can successfully add a task
 def test_task_creation(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName":"TestLastName", "password1":"testpassword", "password2":"testpassword"})
@@ -72,7 +75,7 @@ def test_task_creation(client, app):
         assert Task.query.first().priority == "Low"
         assert Task.query.first().status == 0
 
-# Test task deletion
+# T-04 Ensure that a user can delete a task
 def test_task_deletion(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
@@ -104,24 +107,7 @@ def test_task_deletion(client, app):
     # Assert that the task count has decreased by 1
     assert updated_task_count == initial_task_count - 1
 
-# Test the '/edit_task/<t>' route
-def test_edit_task(client, app):
-    # Create a user
-    client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
-
-    # Login the user
-    client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
-
-    # Create a task
-    client.post("/", data={"title": "testtitle", "description": "test description", "date": "2003-10-10T12:30", "tag": "CSC678", "priority": "Low"})
-
-    # Get the task
-    response = client.get("/edit_task/1")
-
-    # Assert that the response status code is 200 (a successful task retrieval)
-    assert response.status_code == 200
-
-# Test the '/editform' route
+# T-05 Ensure that a user can edit a task
 def test_editform(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
@@ -147,7 +133,68 @@ def test_editform(client, app):
         assert task.tag == "NewTag"
         assert task.priority == "High"
 
-# Test the '/complete_task' route
+# T-06 Ensure that a user can sort tasks 
+def test_sorting(client, app):
+    # Create a user
+    client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
+
+    # Login the user
+    client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
+
+    # Create a task
+    client.post("/", data={"title": "task1", "description": "desc1", "date": "2003-10-10 12:30", "tag": "CSC678", "priority": "Low"})
+
+    # Create a second task with different data
+    client.post("/", data={"title": "task2", "description": "desc2", "date": "2003-10-10 12:00", "tag": "CSC680", "priority": "High"})
+
+    response = client.get("/")
+
+    # Define a function to extract and sort rows from HTML content based on the given column
+    def extract_and_sort_rows(html_content, sort_column):
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(html_content, "html.parser")
+        table = soup.find("table", {"id": "task-table"})
+        rows = table.find("tbody").find_all("tr", recursive=False)
+
+        # Sort rows based on the specified column
+        rows.sort(key=lambda row: row.find_all("td")[sort_column].text)
+
+        return rows
+
+    # Test sorting by ID (column index 0)
+    sorted_rows = extract_and_sort_rows(response.data.decode("utf-8"), sort_column=0)
+    expected_sorted_rows = extract_and_sort_rows(response.data.decode("utf-8"), sort_column=0)
+    assert sorted_rows == expected_sorted_rows
+
+    # Test sorting by 
+    sorted_rows = extract_and_sort_rows(response.data.decode("utf-8"), sort_column=1)
+    expected_sorted_rows = extract_and_sort_rows(response.data.decode("utf-8"), sort_column=1)
+    assert sorted_rows == expected_sorted_rows
+
+    # Test sorting by Title (column index 2)
+    sorted_rows = extract_and_sort_rows(response.data.decode("utf-8"), sort_column=2)
+    expected_sorted_rows = extract_and_sort_rows(response.data.decode("utf-8"), sort_column=2)
+    assert sorted_rows == expected_sorted_rows
+
+    # Test sorting by Tag (column index 4)
+    sorted_rows = extract_and_sort_rows(response.data.decode("utf-8"), sort_column=4)
+    expected_sorted_rows = extract_and_sort_rows(response.data.decode("utf-8"), sort_column=4)
+    assert sorted_rows == expected_sorted_rows
+
+    # Test sorting by Priority (column index 5)
+    sorted_rows = extract_and_sort_rows(response.data.decode("utf-8"), sort_column=5)
+    expected_sorted_rows = extract_and_sort_rows(response.data.decode("utf-8"), sort_column=5)
+    assert sorted_rows == expected_sorted_rows
+
+    # Test sorting by Status (column index 6)
+    sorted_rows = extract_and_sort_rows(response.data.decode("utf-8"), sort_column=6)
+    expected_sorted_rows = extract_and_sort_rows(response.data.decode("utf-8"), sort_column=6)
+    assert sorted_rows == expected_sorted_rows
+
+# T-07 Ensure that a user can filter by column values
+
+# T-08 Ensure that a user can mark tasks as complete/incomplete
 def test_complete_task(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
@@ -174,30 +221,66 @@ def test_complete_task(client, app):
     with app.app_context():
         task = Task.query.get(1)
         assert task.status == False # !!!
+
+
+""" *** TESTING ACCESSING HTML VIEWS *** """
+# Test the home page ("/") route
+def test_home(client):
+    # Create a user
+    response = client.post("/sign-up", data={"email": "test@test.com", "first_name": "TestFirstName", "last_name":"TestLastName", "password":"testpassword"})
+
+    # Login the user
+    client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
+
+    response = client.get("/")
+
+    # Assert that the response status code is a 302 (redirect)
+    assert response.status_code == 302
+
+# Test the '/edit_task/<t>' route
+def test_edit_task(client, app):
+    # Create a user
+    client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
+
+    # Login the user
+    client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
+
+    # Create a task
+    client.post("/", data={"title": "testtitle", "description": "test description", "date": "2003-10-10T12:30", "tag": "CSC678", "priority": "Low"})
+
+    # Get the task
+    response = client.get("/edit_task/1")
+
+    # Assert that the response status code is 200 (a successful task retrieval)
+    assert response.status_code == 200
         
 
 """
 Tests that need to be run:
-Sprint 1-2 Tests
+Sprint 1-2 Tests (DONE)
+
+Login
 ✅ L-01 Ensure that a user can successfully create an account
 ✅ L-02 Ensure that a user can successfully login to their previously created account
 ✅ L-03 Ensure that a user can’t log into their account with an incorrect password
 ✅ L-04 Non-existent user
 
+Tasks
 ✅ T-01 Ensure that user can successfully add a task
 ✅ T-02 Ensure that the user can view a list of tasks
+    - Manually
 (DELETED) T-03 Ensure that a user can’t add a task due on a past date and/or time 
     - Some task managing applications, like Apple Reminders, allows for creation 
     of past tasks
     - Might just want to remove this test
 ✅ T-04 Ensure that a user can delete a task
 ✅ T-05 Ensure that a user can edit a task
-✅ T-06 Ensure that a user can sort tasks by day and time
+✅ T-06 Ensure that a user can sort tasks 
 
 Sprint 3 Tests
 T-07 Ensure that a user can filter by column values
     - Marked as T-06 incorrectly in Prep for Sprint 3 Doc
-⭐️ T-08 Ensure that a user can mark tasks as complete/inc omplete
+⭐️ T-08 Ensure that a user can mark tasks as complete/incomplete
     - Marked as T-07 incorrectly in Prep for Sprint 3 Doc
 
 """
