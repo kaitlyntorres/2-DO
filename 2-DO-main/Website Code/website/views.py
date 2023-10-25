@@ -61,7 +61,7 @@ def editform():
     if request.method == "POST":
         task.title = request.form.get('title')
         task.description = request.form.get('description')
-        task.date = request.form.get('date')
+        task.due_date = request.form.get('date')
         task.tag = request.form.get('tag')
         task.priority = request.form.get('priority')
 
@@ -71,22 +71,24 @@ def editform():
     return render_template("editform.html", user=current_user)
 
 
-@views.route('/complete_task/',methods=["POST"])
+@views.route('/complete_task/', methods=["POST"])
 @login_required
 def complete_task():
-    #grabs dict from home.html
-    output=request.get_json()
-    #retrieves task id
-    task_id= output.get('task')
-    #retrieves boolean value
-    bool=output.get('bool')
-    #grabs row in db where task = id
+    # Grabs the JSON data from home.html
+    output = request.get_json()
+    # Retrieves task id
+    task_id = output.get('task')
+    
+    # Grabs the row in the database where task = id
     task = Task.query.filter_by(id=task_id).first()
-    #changes status of row to the boolean passed in
-    task.status = bool
+
+    # Toggles the status of the task (complementing the boolean value)
+    task.status = not task.status
+
     db.session.commit()
-   
+
     return render_template("editform.html", user=current_user)
+
 
     
 
