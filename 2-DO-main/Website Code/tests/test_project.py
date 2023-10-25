@@ -1,8 +1,9 @@
+# Import necessary modules and models
 from website.models import User, Task
 from werkzeug.security import generate_password_hash, check_password_hash
 import json
 
-# Tests that the home page ("/") works properly
+# Test the home page ("/") route
 def test_home(client):
     # Create a user
     response = client.post("/sign-up", data={"email": "test@test.com", "first_name": "TestFirstName", "last_name":"TestLastName", "password":"testpassword"})
@@ -12,36 +13,33 @@ def test_home(client):
 
     response = client.get("/")
 
+    # Assert that the response status code is a 302 (redirect)
     assert response.status_code == 302
 
-#def test_logout(client):
-
-
-# Testing User Creation
+# Test the user creation ("/sign-up") route
 def test_sign_up(client, app):
 
-    # "data" is a dictionary we can pass in data that we need to send to the database
+    # Create a user
     response = client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName":"TestLastName", "password1":"testpassword", "password2":"testpassword"})
 
-    # More information on when to use app_context() and passing app as a param below all the tests
+    # Access the app context to interact with the database
     with app.app_context():
+        # Assert that a user has been created in the database with the provided information
         assert User.query.count() == 1
         assert User.query.first().email == "test@test.com"
         assert User.query.first().first_name == "TestFirstName"
         assert User.query.first().last_name == "TestLastName"
         assert check_password_hash(User.query.first().password, "testpassword") == True
 
-# Attemping to login when the account does not exist
+# Test invalid login attempt
 def test_invalid_login(client):
     
     response = client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
-    """ client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
 
-    response = client.get("/") """
-
+    # Assert that the response status code is 200 (an unsuccessful login attempt)
     assert response.status_code == 200 
 
-# Attemping to login succesfully 
+# Test valid login
 def test_valid_login(client):
     response = client.post("/sign-up", data={"email": "test@test.com", "first_name": "TestFirstName", "last_name":"TestLastName", "password":"testpassword"})
 
@@ -49,18 +47,23 @@ def test_valid_login(client):
 
     response = client.get("/")
 
+    # Assert that the response status code is 302 (a successful login attempt)
     assert response.status_code == 302 
 
+# Test task creation
 def test_task_creation(client, app):
-    #Create a user
+    # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName":"TestLastName", "password1":"testpassword", "password2":"testpassword"})
 
     # Login the user
     client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
 
+    # Create a task
     client.post("/", data={"title":"testtitle", "description":"test description", "date":"2003-10-10T12:30", "tag":"CSC678", "priority":"Low"})
 
+    # Access the app context to interact with the database
     with app.app_context():
+        # Assert that a task has been created in the database with the provided information
         assert Task.query.count() == 1
         assert Task.query.first().title == "testtitle"
         assert Task.query.first().description == "test description"
@@ -69,6 +72,7 @@ def test_task_creation(client, app):
         assert Task.query.first().priority == "Low"
         assert Task.query.first().status == 0
 
+# Test task deletion
 def test_task_deletion(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
@@ -82,20 +86,18 @@ def test_task_deletion(client, app):
     initial_task_count = 0
     task_id = 0
 
-    # Get the initial count of tasks in the database
+    # Access the app context to interact with the database
     with app.app_context():
         initial_task_count = Task.query.count()
 
-        # Get the ID of the task to delete
         task_id = Task.query.first().id
 
     # Send a request to delete the task
     client.get(f"/delete_task/{task_id}")
 
-    # Get the count of tasks in the database after deletion
     updated_task_count = 0
 
-    #Recount number of tasks
+    # Recount the number of tasks in the database
     with app.app_context():
         updated_task_count = Task.query.count()
 
@@ -116,7 +118,7 @@ def test_edit_task(client, app):
     # Get the task
     response = client.get("/edit_task/1")
 
-    # Check if the response status code is 200 OK, which means the task was successfully retrieved
+    # Assert that the response status code is 200 (a successful task retrieval)
     assert response.status_code == 200
 
 # Test the '/editform' route
@@ -133,7 +135,7 @@ def test_editform(client, app):
     # Edit the task
     response = client.post("/editform?taskid=1", data={"title": "New Title", "description": "New Description", "date": "2003-10-11 13:30", "tag": "NewTag", "priority": "High"})
 
-    # Check if the response status code is 302 (redirect) or any other status code as expected
+    # Assert that the response status code is 302 (redirect)
     assert response.status_code == 302  # Adjust this based on your expected behavior
 
     # Verify if the task attributes were updated in the database
@@ -165,14 +167,13 @@ def test_complete_task(client, app):
     # Send a JSON POST request to complete the task
     response = client.post("/complete_task", data=json.dumps(data), content_type='application/json')
 
-    # Check if the response status code is 200 OK or any other status code as expected
-    assert response.status_code == 308  # Adjust this based on your expected behavior
+    # Assert that the response status code is 308 or adjust it based on your expected behavior
+    assert response.status_code == 308  
 
     # Verify if the task status in the database was updated
     with app.app_context():
         task = Task.query.get(1)
-        assert task.status == True  # Adjust this based on the data you sent (True for complete, False for incomplete)
-
+        assert task.status == False # !!!
         
 
 """
@@ -196,7 +197,7 @@ Sprint 1-2 Tests
 Sprint 3 Tests
 T-07 Ensure that a user can filter by column values
     - Marked as T-06 incorrectly in Prep for Sprint 3 Doc
-✅ T-08 Ensure that a user can mark tasks as complete/inc omplete
+⭐️ T-08 Ensure that a user can mark tasks as complete/inc omplete
     - Marked as T-07 incorrectly in Prep for Sprint 3 Doc
 
 """
