@@ -6,6 +6,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <h1 align="center">Tasks</h1>
 <hr>
+
+<!-- SEARCH BAR -->
+<div class="search-container">
+  <label for="columnSelect">Search in Column:</label>
+  <select id="columnSelect" onchange="changeSearchColumn()">
+    <option value="title">Title</option>
+    <option value="description">Description</option>
+    <option value="tag">Tag</option>
+    <option value="priority">Priority</option>
+    <option value="status">Status</option>
+  </select>
+  <input type="text" id="taskSearch" placeholder="Search for tasks..." onkeyup="searchTasks()">
+</div>
+<br>
+
 <ul class="list-group list-group-flush" id="tasks">
   <table class="searchable sortable" id="task-table">
     <thead>
@@ -82,6 +97,7 @@
   <div>
     <button type="submit" class="btn btn-primary">Add Task</button>
   </div>
+  <br>
 </form>
 
 <script>
@@ -122,7 +138,7 @@
   }
 }
 </script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
 <script>
 //Checkbox is checked if task is complete. Bool value and task id get passed to Flask to update bool in db
 function checkComplete(t)
@@ -138,9 +154,6 @@ function checkComplete(t)
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   //passes data as dict
   xmlhttp.send(JSON.stringify({'task':t,'bool':bool}));
-
-
-
   /*
   $.ajax({
     url:"/complete_task/",
@@ -159,11 +172,6 @@ function checkComplete(t)
   //task_id=checkbox.toString()
 
   //console.log(task_id)
-
-
-
-
-
  
   /*
   if (checkbox.checked == true)
@@ -175,13 +183,50 @@ function checkComplete(t)
   alert('task '+ t + ' incomplete');
   }
   */
-  
-
-  
-  
 }
 </script>
 
+<script>
+  // Your sortTable function here
+
+  var searchColumn = "title"; // Default search column
+
+  function changeSearchColumn() {
+    var columnSelect = document.getElementById("columnSelect");
+    searchColumn = columnSelect.options[columnSelect.selectedIndex].value;
+    searchTasks();
+  }
+
+  function searchTasks() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("taskSearch");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("task-table");
+    tr = table.getElementsByTagName("tr");
+
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[2]; // Index 2 is the Title column, adjust it as needed
+      if (searchColumn === "description") {
+        td = tr[i].getElementsByTagName("td")[3]; // Index 3 is the Description column
+      } else if (searchColumn === "tag") {
+        td = tr[i].getElementsByTagName("td")[4]; // Index 4 is the Tag column
+      } else if (searchColumn === "priority") {
+        td = tr[i].getElementsByTagName("td")[5]; // Index 5 is the Priority column
+      } else if (searchColumn === "status") {
+        td = tr[i].getElementsByTagName("td")[6]; // Index 6 is the Status column
+      }
+
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+</script>
 
 
 

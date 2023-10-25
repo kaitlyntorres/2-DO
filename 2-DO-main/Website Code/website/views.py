@@ -68,7 +68,7 @@ def editform():
         db.session.commit()
         return redirect(url_for('views.home'))
 
-    return render_template("editform.html", user=current_user)
+    return render_template("editform.html", user=current_user, task=task)
 
 
 @views.route('/complete_task/', methods=["POST"])
