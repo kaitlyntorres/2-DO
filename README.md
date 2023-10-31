@@ -32,11 +32,11 @@ Users must be able to edit any tasks on todo list = <b>COMPLETE</b> <br />
 Tasks must be sorted based on day and time = <b>COMPLETE</b> <br />
 Users should be able to give each tasks a priority  (high, moderate, low) = <b>COMPLETE</b>
 
-## Sprint 3 = IN PROGRESS
+## Sprint 3 = DONE
 Users should be able to filter out tasks by date, time, etc <br />
 Users should be able to mark tasks as complete or incomplete  = <b>COMPLETE</b> <br />
 
-## Sprint 4 = PENDING
+## Sprint 4 = IN PROGRESS
 Users could be able to see a list of tasks that have already passed (task history) <br />
 Users could get reminders when their tasks is approaching<br />
 
@@ -47,4 +47,4 @@ Users could export tasks to CSV<br />
 Users could have tasks with a specified date added to a calendar
 
 # Status
-This Project is entering Sprint 3 of production
+This Project is entering Sprint 4 of production
