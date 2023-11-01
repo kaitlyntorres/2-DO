@@ -11425,4 +11425,9 @@ a.text-dark:hover {
     }
 }
 
+.table-divider {
+    border-top: 1px solid #ccc;
+    /* Adjust the border style and color as needed */
+}
+
 /*# sourceMappingURL=bootstrap.min.css.map */

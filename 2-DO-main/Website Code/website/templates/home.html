@@ -25,13 +25,13 @@
   <table class="searchable sortable" id="task-table">
     <thead>
       <tr>
-        <th ><a href="javascript:sortTable(0)">ID</a></th>
-        <th ><a href="javascript:sortTable(1)">Date and Time</a></th>
-        <th  ><a href="javascript:sortTable(2)">Title</a></th>
-        <th  >Description</th>
-        <th ><a href="javascript:sortTable(4)">Tag</a></th>
-        <th ><a href="javascript:sortTable(5)">Priority</a></th>
-        <th  ><a href="javascript:sortTable(6)">Status</a></th>
+        <th><a href="javascript:sortTable(0)">ID</a></th>
+        <th><a href="javascript:sortTable(1)">Date and Time</a></th>
+        <th><a href="javascript:sortTable(2)">Title</a></th>
+        <th>Description</th>
+        <th><a href="javascript:sortTable(4)">Tag</a></th>
+        <th><a href="javascript:sortTable(5)">Priority</a></th>
+        <th><a href="javascript:sortTable(6)">Status</a></th>
         <th></th>
       </tr>
     </thead>
@@ -44,27 +44,36 @@
         <td>{{ task.description }}</td>
         <td>{{ task.tag }}</td>
         <td>{{ task.priority }}</td>
-        
+        <!-- <td>
+          <input type="checkbox" id="{{ task.id }}" class="complete" name="data_{{ False }}" value="{{ False }}"
+            onclick="checkComplete('{{ task.id }}')">
+        </td> -->
         <td>
-          <input
-          type='checkbox'
-          id='{{ task.id }}'
-          class='complete'
-          name='data_{{False}}'
-          value="{{False}}"
-          onclick="checkComplete('{{ task.id }}')"
-          >
+          <input type="checkbox" id="{{ task.id }}" class="complete" name="data_{{ task.status }}" value="{{ task.status }}"
+            onclick="checkComplete('{{ task.id }}')" {% if task.status %}checked{% endif %}>
         </td>
 
         <td><a href="{{ url_for('views.delete_task', t=task.id) }}"
-            onclick="return confirm('Do you want to permanently delete task {{ task.id }}?');" title="Delete Task">Delete Task</a>
+            onclick="return confirm('Do you want to permanently delete task {{ task.id }}?');"
+            title="Delete Task">Delete Task</a>
         </td>
-        <td><a href="/editform?taskid={{task.id}}">Edit Task</a></td>
+        <td><a href="/editform?taskid={{ task.id }}">Edit Task</a></td>
       </tr>
+<!--       <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr> Add space between rows || CHANGE TO MAKE IT LOOK CLEANER-->
       {% endfor %}
     </tbody>
   </table>
 </ul>
+
 <h3>Add Information About Your Task: </h3>
 <form method="POST">
   <h1>Task</h1>
@@ -100,7 +109,7 @@
   <br>
 </form>
 
-<script>
+<!-- <script>
   /* REFERENCED FROM W3SCHOOLS*/
 
   function sortTable(num) {
@@ -137,7 +146,88 @@
     }
   }
 }
+</script> -->
+<!-- THIS IS A TEMP CHANGE FOR SORTING -->
+<script>
+  // Store the current sorting direction for each column
+  var sortDirections = Array(7).fill(1); // 1 for ascending, -1 for descending
+
+  function sortTable(num) {
+      var table, rows, switching, i, x, y, shouldSwitch;
+      table = document.getElementById("task-table");
+      switching = true;
+      sortDirections[num] *= -1;
+
+      while (switching) {
+        switching = false;
+        rows = table.rows;
+
+        for (i = 1; i < (rows.length - 1); i++) {
+          shouldSwitch = false;
+          x = rows[i].getElementsByTagName("TD")[num];
+          y = rows[i + 1].getElementsByTagName("TD")[num];
+
+          if (num == 0 || num == 1) {
+            var xValue = Number(x.innerHTML);
+            var yValue = Number(y.innerHTML);
+          } else if (num == 5) {
+            var xValue = getPriorityValue(x.innerHTML);
+            var yValue = getPriorityValue(y.innerHTML);
+          } else if (num == 6) {
+            // Column 6 (Status): Custom sorting based on incomplete/complete
+            var xValue = getStatusValue(x.firstChild);
+            var yValue = getStatusValue(y.firstChild);
+          } else {
+            var xValue = x.innerHTML.toLowerCase();
+            var yValue = y.innerHTML.toLowerCase();
+          }
+
+          // Custom sorting for the "Status" column
+          if (xValue === yValue) {
+            continue;
+          } else if (xValue < yValue) {
+            if (sortDirections[num] === 1) {
+              shouldSwitch = true;
+              break;
+            }
+          } else {
+            if (sortDirections[num] === -1) {
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+        }
+      }
+    }
+
+    function getStatusValue(checkbox) {
+      // Custom sorting for "Status" column
+      return checkbox.value === "True" ? 1 : 0; // 1 for complete (True), 0 for incomplete (False)
+    }
+
+
+
+  // Helper function to convert priority text to sortable value
+  function getPriorityValue(priority) {
+    switch (priority) {
+      case "Low":
+        return 1;
+      case "Medium":
+        return 2;
+      case "High":
+        return 3;
+      default:
+        return 0; // Handle other cases if necessary
+    }
+  }
+
 </script>
+
 
 <script>
 //Checkbox is checked if task is complete. Bool value and task id get passed to Flask to update bool in db
