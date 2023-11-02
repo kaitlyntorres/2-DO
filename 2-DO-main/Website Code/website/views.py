@@ -33,6 +33,8 @@ def home():
         new_task = Task(title=title,user_id=current_user.id,description=description,due_date=formatted_date,tag=tag,priority=priority, reminder_time=formatted_reminder_time)
         db.session.add(new_task)
         db.session.commit()
+
+        return redirect(url_for('views.home'))
     return render_template("home.html", user=current_user)
 
 
@@ -113,6 +115,10 @@ def get_task(task_id):
         'status': task.status,
         'reminder_time': task.reminder_time
     }
+
+    #msg_text = '%s Reminder Set' % str(task)
+    #flash(msg_text)
+    #flash('Reminder Set!', category='success')
 
     return jsonify(task_data)
 

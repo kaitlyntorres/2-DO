@@ -63,6 +63,47 @@ section {
     display: block
 }
 
+/* Styling for the notification container */
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    max-width: 300px;
+    z-index: 1000;
+    /* Adjust the z-index as needed */
+}
+
+/* Styling for the notification messages */
+.notification {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Styling for success messages */
+.notification.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Styling for error messages */
+.notification.error {
+    background-color: #F44336;
+    color: white;
+}
+
+/* Styling for the close button */
+.close-notification {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+}
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
