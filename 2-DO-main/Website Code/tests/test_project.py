@@ -230,7 +230,7 @@ def test_sorting(client, app):
 
 """ *** Sprint 3 Test Cases *** """
 
-""" # T-07 Ensure that a user can filter by column values
+# T-07 Ensure that a user can filter by column values
 def test_search_tasks(client, app):
     # SHOULD HAVE THIS TEST INPUT A TASK AND THEN CHECK INSTEAD OF RELYING 
     # UPON HAVING THE TESTS ALREADY EXISTING IN THE DATABASE
@@ -289,6 +289,7 @@ def test_search_tasks(client, app):
 
     column_select = driver.find_element(By.NAME, "columnSelect")
     column_select.send_keys(search_column)
+    time.sleep(1)
     task_search = driver.find_element(By.ID, "taskSearch")
     task_search.send_keys(search_text)
 
@@ -308,6 +309,7 @@ def test_search_tasks(client, app):
 
     column_select = driver.find_element(By.NAME, "columnSelect")
     column_select.send_keys(search_column)
+    time.sleep(1)
     task_search = driver.find_element(By.ID, "taskSearch")
     task_search.send_keys(search_text)
 
@@ -327,6 +329,7 @@ def test_search_tasks(client, app):
 
     column_select = driver.find_element(By.NAME, "columnSelect")
     column_select.send_keys(search_column)
+    time.sleep(1)
     task_search = driver.find_element(By.ID, "taskSearch")
     task_search.send_keys(search_text)
 
@@ -339,7 +342,7 @@ def test_search_tasks(client, app):
     assert f'Medium' not in task_table.text
 
     # Quit Driver When Done
-    driver.quit() """
+    driver.quit() 
 
 # T-08 Ensure that a user can mark tasks as complete/incomplete
 def test_complete_task(client, app):
