@@ -8,7 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.keys import Keys
-import os
+import time
 
 """ *** TEST CASES *** """
 """ *** Sprint 1 & 2 *** """
@@ -226,12 +226,6 @@ def test_sorting(client, app):
 """ *** Sprint 3 Test Cases *** """
 
 # T-07 Ensure that a user can filter by column values
-
-## How to use selenium web driver
-# 1. Download: https://sites.google.com/chromium.org/driver/downloads
-
-
-
 def test_search_tasks(client, app):
 
    # Set up the GeckoDriver using webdriver_manager
@@ -242,8 +236,6 @@ def test_search_tasks(client, app):
 
     # Navigate to a website (e.g., Google)
     driver.get("http://127.0.0.1:3000/login")
-
-    #driver.implicitly_wait(10)
 
     # Find the email and password input fields using WebDriver methods
     email_field = driver.find_element(By.NAME, "email")
@@ -256,119 +248,91 @@ def test_search_tasks(client, app):
     # Submit the login form
     password_field.send_keys(Keys.RETURN)
 
+    # Test Title Search 
     #Search Terms
     search_column = "title"
     search_text = "task1"
 
+    time.sleep(3)
+
     # Find and select the search column dropdown
-    column_select = driver.find_element(By.ID, "columnSelect")
+    column_select = driver.find_element(By.NAME, "columnSelect")
     column_select.send_keys(search_column)
 
     # Find and input the search text
     task_search = driver.find_element(By.ID, "taskSearch")
     task_search.send_keys(search_text)
-
+    
     # Wait for a moment (you may need to adjust the waiting time)
     driver.implicitly_wait(2)
-
+    
     # Find the tasks table
     task_table = driver.find_element(By.ID, "task-table")
 
     # Check if the search results are as expected
     assert f'task1' in task_table.text
-    #ssert f'task2' not in task_table.text
-    #assert f'task3' not in task_table.text
+    assert f'task2' not in task_table.text
+    assert f'task3' not in task_table.text
 
-    search_column2 = "description"
-    search_text2 = "desc2"
+    # Test Description Search 
+    driver.refresh()
+    time.sleep(3)
+    search_column = "description"
+    search_text = "desc2"
 
-    search_column3 = "tag"
-    search_text3 = "tag3"
+    column_select = driver.find_element(By.NAME, "columnSelect")
+    column_select.send_keys(search_column)
+    task_search = driver.find_element(By.ID, "taskSearch")
+    task_search.send_keys(search_text)
 
-    search_column4 = "priority"
-    search_text4 = "High"
+    driver.implicitly_wait(2)
 
+    task_table = driver.find_element(By.ID, "task-table")
 
+    assert f'desc2' in task_table.text
+    assert f'desc1' not in task_table.text
+    assert f'desc3' not in task_table.text
 
+    # Test Tag Search 
+    driver.refresh()
+    time.sleep(3)
+    search_column = "tag"
+    search_text = "tag3"
 
-    # Simulate keyup event
-    task_search.send_keys(Keys.RETURN)
+    column_select = driver.find_element(By.NAME, "columnSelect")
+    column_select.send_keys(search_column)
+    task_search = driver.find_element(By.ID, "taskSearch")
+    task_search.send_keys(search_text)
 
+    driver.implicitly_wait(2)
+
+    task_table = driver.find_element(By.ID, "task-table")
+
+    assert f'tag3' in task_table.text
+    assert f'tag1' not in task_table.text
+    assert f'tag2' not in task_table.text
+
+    # Test Priority Search 
+    driver.refresh()
+    time.sleep(3)
+    search_column = "priority"
+    search_text = "High"
+
+    column_select = driver.find_element(By.NAME, "columnSelect")
+    column_select.send_keys(search_column)
+    task_search = driver.find_element(By.ID, "taskSearch")
+    task_search.send_keys(search_text)
+
+    driver.implicitly_wait(2)
+
+    task_table = driver.find_element(By.ID, "task-table")
+
+    assert f'High' in task_table.text
+    assert f'Low' not in task_table.text
+    assert f'Medium' not in task_table.text
+
+    # Quit Driver When Done
     driver.quit()
-
-    
-
-
-# Old T-07
-""" def test_search_tasks(client, app):
-
-    # Create a user
-    client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
-
-    # Login the user
-    client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
-
-    # Create tasks
-    client.post("/", data={"title": "task1", "description": "desc1", "date": "2003-10-10 12:30", "tag": "CSC678", "priority": "Low"})
-    client.post("/", data={"title": "task2", "description": "desc2", "date": "2003-10-10 12:00", "tag": "CSC680", "priority": "High"})
-    client.post("/", data={"title": "task3", "description": "desc3", "date": "2003-10-11 13:00", "tag": "CSC678", "priority": "Medium"})
-
-    # Send a GET request to the task list page
-    response = client.get("/")
-
-    # Check if the response status code is 200 (OK)
-    #assert response.status_code == 200
-
-    # Check if all tasks are displayed
-    assert b'task1' in response.data
-    assert b'task2' in response.data
-    assert b'task3' in response.data
-
-    # Test searching by title
-    search_response = client.post("/", data={"columnSelect": "title", "taskSearch": "task1"})
-
-    # Check if the response status code is 200 (OK)
-    #assert search_response.status_code == 200
-
-    # Check if the response contains the searched task
-    assert b'task1' in search_response.data
-    assert b'task2' not in search_response.data
-    assert b'task3' not in search_response.data
-
-    # Test searching by description
-    search_response = client.post("/", data={"columnSelect": "description", "taskSearch": "desc2"})
-
-    # Check if the response status code is 200 (OK)
-    #assert search_response.status_code == 200
-
-    # Check if the response contains the searched task
-    assert b'task2' in search_response.data
-    assert b'task1' not in search_response.data
-    assert b'task3' not in search_response.data
-
-    # Test searching by tag
-    search_response = client.post("/", data={"columnSelect": "tag", "taskSearch": "CSC678"})
-
-    # Check if the response status code is 200 (OK)
-    #assert search_response.status_code == 200
-
-    # Check if the response contains the searched task
-    assert b'task1' in search_response.data
-    assert b'task3' in search_response.data
-    assert b'task2' not in search_response.data
-
-    # You can add more search test cases based on different columns
-
-    # Test searching by priority
-    search_response = client.post("/", data={"columnSelect": "priority", "taskSearch": "Low"})
-
-    # Check if the response status code is 200 (OK)
-    #assert search_response.status_code == 200
-
-    # Check if the response contains the searched task
-    assert b'task1' in search_response.data
-    assert b'task2' not in search_response.data
-    assert b'task3' not in search_response.data """
 
 # T-08 Ensure that a user can mark tasks as complete/incomplete
 def test_complete_task(client, app):
@@ -412,6 +376,9 @@ def test_home(client):
 
     # Assert that the response status code is a 302 (redirect)
     assert response.status_code == 302
+
+
+"""  """
 
 # Test the '/edit_task/<t>' route
 def test_edit_task(client, app):

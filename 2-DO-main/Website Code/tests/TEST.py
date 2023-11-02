@@ -4,6 +4,8 @@ from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
+import time
 import os
 
 # Set up the GeckoDriver using webdriver_manager
@@ -27,6 +29,36 @@ password_field.send_keys("12345678")
 
 # Submit the login form
 password_field.send_keys(Keys.RETURN)
+
+#Search Terms
+search_column = "title"
+search_text = "task1"
+
+#driver.implicitly_wait(3)
+time.sleep(5)
+#driver.get("http://127.0.0.1:3000/")
+
+page_html = driver.page_source
+print(page_html)
+
+# Find and select the search column dropdown
+#select_element = Select(driver.find_element(By.ID, "columnSelect"))
+column_select = driver.find_element(By.NAME, "columnSelect")
+column_select.send_keys(search_column)
+#select_element.select_by_value("title")
+
+# Find and input the search text
+task_search = driver.find_element(By.ID, "taskSearch")
+task_search.send_keys(search_text)
+
+# Wait for a moment (you may need to adjust the waiting time)
+driver.implicitly_wait(2)
+
+# Find the tasks table
+task_table = driver.find_element(By.ID, "task-table")
+
+# Check if the search results are as expected
+assert f'task1' in task_table.text
 
 # Perform actions on the web page using the driver
 # ...
