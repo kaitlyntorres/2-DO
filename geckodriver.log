@@ -1,0 +1,269 @@
+1698884469753	geckodriver	INFO	Listening on 127.0.0.1:63602
+1698884469918	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilen8BN2u"
+2023-11-01 20:21:28.350 firefox-bin[22443:1376322] Unable to install helper!
+WebDriver BiDi listening on ws://localhost:63603
+DevTools listening on ws://localhost:63603/devtools/browser/972c7f22-e339-447b-bc82-b231dbadd62f
+1698884515087	geckodriver	INFO	Listening on 127.0.0.1:63654
+1698884515615	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileSSc2tg"
+1698884516581	Marionette	INFO	Marionette enabled
+1698884516703	Marionette	INFO	Listening on port 63660
+WebDriver BiDi listening on ws://localhost:63655
+Read port: 63660
+1698884517755	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileSSc2tg/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:63655/devtools/browser/a6033d6a-5b76-4b71-8d93-f4b0d5974800
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1698884604682	Marionette	INFO	Stopped listening on port 63660
+1698884610180	geckodriver	INFO	Listening on 127.0.0.1:63716
+1698884610687	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilerM0xog"
+1698884612182	Marionette	INFO	Marionette enabled
+1698884612434	Marionette	INFO	Listening on port 63722
+WebDriver BiDi listening on ws://localhost:63717
+Read port: 63722
+1698884613643	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilerM0xog/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:63717/devtools/browser/e0cc0a79-d0e3-46cc-aa1d-61470b59d434
+1698884743113	geckodriver	INFO	Listening on 127.0.0.1:63779
+1698884743617	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile3fkZCG"
+1698884744734	Marionette	INFO	Marionette enabled
+1698884744988	Marionette	INFO	Listening on port 63785
+WebDriver BiDi listening on ws://localhost:63780
+Read port: 63785
+1698884746040	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1698884746772	Marionette	INFO	Stopped listening on port 63722
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile3fkZCG/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:63780/devtools/browser/32794020-799a-420f-aaae-6d86f5c24eb8
+1698884784034	Marionette	INFO	Stopped listening on port 63785
+[GFX1-]: Unrecognized feature ACCELERATED_CANVAS2D
+1698885016298	geckodriver	INFO	Listening on 127.0.0.1:63886
+1698885016363	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilemBsf90"
+1698885017210	Marionette	INFO	Marionette enabled
+1698885017386	Marionette	INFO	Listening on port 63890
+Read port: 63890
+WebDriver BiDi listening on ws://localhost:63887
+1698885018165	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilemBsf90/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:63887/devtools/browser/c57b9694-d17a-41c5-a3ec-fb4ee50d94bf
+1698885133699	geckodriver	INFO	Listening on 127.0.0.1:63955
+1698885134207	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile7h6us1"
+1698885135213	Marionette	INFO	Marionette enabled
+1698885135463	Marionette	INFO	Listening on port 63961
+WebDriver BiDi listening on ws://localhost:63956
+Read port: 63961
+1698885136430	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1698885139210	Marionette	INFO	Stopped listening on port 63890
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile7h6us1/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:63956/devtools/browser/739f18d5-35e0-4e33-a699-82d9f10d01ba
+1698885159290	Marionette	INFO	Stopped listening on port 63961
+1698885160678	geckodriver	INFO	Listening on 127.0.0.1:64007
+1698885161196	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileuWR6XH"
+1698885162969	Marionette	INFO	Marionette enabled
+1698885163162	Marionette	INFO	Listening on port 64013
+WebDriver BiDi listening on ws://localhost:64008
+Read port: 64013
+1698885164286	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileuWR6XH/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64008/devtools/browser/2aa8d9bb-18fe-4001-95eb-0577cf685a65
+1698885206690	geckodriver	INFO	Listening on 127.0.0.1:64059
+1698885207190	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileLKqkpq"
+1698885208918	Marionette	INFO	Marionette enabled
+1698885209027	Marionette	INFO	Listening on port 64065
+WebDriver BiDi listening on ws://localhost:64060
+Read port: 64065
+1698885209820	Marionette	INFO	Stopped listening on port 64013
+Read port: 64065
+1698885210999	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileLKqkpq/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64060/devtools/browser/2cd7f321-8cee-494a-a166-ff009d03e15b
+1698885297699	Marionette	INFO	Stopped listening on port 64065
+1698885299437	geckodriver	INFO	Listening on 127.0.0.1:64125
+1698885299975	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile6ADDCe"
+1698885304333	Marionette	INFO	Marionette enabled
+1698885304422	Marionette	INFO	Listening on port 64134
+WebDriver BiDi listening on ws://localhost:64126
+Read port: 64134
+1698885305262	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile6ADDCe/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64126/devtools/browser/e3e28289-e26b-4f62-aa93-fb754bc72675
+1698885329484	Marionette	INFO	Stopped listening on port 64134
+1698885331761	geckodriver	INFO	Listening on 127.0.0.1:64177
+1698885332284	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile0Rb5c9"
+1698885334643	Marionette	INFO	Marionette enabled
+1698885334738	Marionette	INFO	Listening on port 64183
+WebDriver BiDi listening on ws://localhost:64178
+Read port: 64183
+1698885335793	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile0Rb5c9/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64178/devtools/browser/41e29758-44bf-4a7d-9b7a-b74b9e89fc89
+1698885459626	geckodriver	INFO	Listening on 127.0.0.1:64236
+1698885460143	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileiZp7jN"
+1698885461646	Marionette	INFO	Marionette enabled
+1698885461921	Marionette	INFO	Listening on port 64243
+WebDriver BiDi listening on ws://localhost:64237
+Read port: 64243
+Read port: 64243
+1698885463786	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1698885464464	Marionette	INFO	Stopped listening on port 64183
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileiZp7jN/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64237/devtools/browser/6ff2409d-e9ac-4a9b-91ce-65fe29850794
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+1698885711317	Marionette	INFO	Stopped listening on port 64243
+1698885993073	geckodriver	INFO	Listening on 127.0.0.1:64413
+1698885993578	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilez9j1X9"
+1698885994739	Marionette	INFO	Marionette enabled
+1698885994885	Marionette	INFO	Listening on port 64419
+WebDriver BiDi listening on ws://localhost:64414
+Read port: 64419
+1698885995906	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilez9j1X9/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64414/devtools/browser/a87d8b64-eec1-482b-a9d9-bfbe668ad1ad
+1698886120828	geckodriver	INFO	Listening on 127.0.0.1:64466
+1698886121326	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileaPstQh"
+1698886122317	Marionette	INFO	Marionette enabled
+1698886122484	Marionette	INFO	Listening on port 64472
+WebDriver BiDi listening on ws://localhost:64467
+Read port: 64472
+1698886123424	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileaPstQh/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64467/devtools/browser/197f4037-1011-4b48-9a18-33eb0a0541fc
+1698886314241	geckodriver	INFO	Listening on 127.0.0.1:64541
+1698886314378	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileMjN1uk"
+1698886315668	Marionette	INFO	Marionette enabled
+1698886315770	Marionette	INFO	Listening on port 64547
+WebDriver BiDi listening on ws://localhost:64542
+Read port: 64547
+1698886316876	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileMjN1uk/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64542/devtools/browser/a6815b59-1903-4852-9039-2011c4dd3511
+1698886321130	Marionette	INFO	Stopped listening on port 64547
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 693: TypeError: this.tablesData[table] is undefined
+JavaScript error: resource://services-settings/Utils.jsm, line 239: TypeError: NetworkError: Network request failed
+1698886338288	geckodriver	INFO	Listening on 127.0.0.1:64602
+1698886338612	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile8E3OYR"
+1698886339820	Marionette	INFO	Marionette enabled
+1698886339941	Marionette	INFO	Listening on port 64608
+WebDriver BiDi listening on ws://localhost:64603
+Read port: 64608
+1698886341102	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1698886342118	Marionette	INFO	Stopped listening on port 64419
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile8E3OYR/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64603/devtools/browser/d9ee51be-76bb-48cd-bff2-62bc21e307ca
+1698886344083	Marionette	INFO	Stopped listening on port 64472
+1698886345445	Marionette	INFO	Stopped listening on port 64608
+JavaScript error: resource://services-settings/Utils.jsm, line 239: TypeError: NetworkError: Network request failed
+1698886367844	geckodriver	INFO	Listening on 127.0.0.1:64647
+1698886368115	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile14QOK0"
+1698886369826	Marionette	INFO	Marionette enabled
+1698886369926	Marionette	INFO	Listening on port 64653
+WebDriver BiDi listening on ws://localhost:64648
+Read port: 64653
+Read port: 64653
+1698886371356	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile14QOK0/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64648/devtools/browser/21bb1292-f4cf-4ee2-831d-f2124fdd2350
+1698886463183	geckodriver	INFO	Listening on 127.0.0.1:64709
+1698886463488	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileB4LagQ"
+1698886464155	Marionette	INFO	Marionette enabled
+1698886464327	Marionette	INFO	Listening on port 64715
+WebDriver BiDi listening on ws://localhost:64710
+Read port: 64715
+1698886465354	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileB4LagQ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64710/devtools/browser/309625aa-33c1-4c88-9510-36ef26c907e3
+[GFX1-]: Unrecognized feature ACCELERATED_CANVAS2D
+[GFX1-]: Unrecognized feature ACCELERATED_CANVAS2D
+1698887108081	geckodriver	INFO	Listening on 127.0.0.1:64860
+1698887108384	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileeBjqHQ"
+1698887109614	Marionette	INFO	Marionette enabled
+1698887109656	Marionette	INFO	Listening on port 64866
+WebDriver BiDi listening on ws://localhost:64861
+Read port: 64866
+1698887110076	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileeBjqHQ/search.json.mozlz4", (void 0)))
+1698887112847	Marionette	INFO	Stopped listening on port 64653
+DevTools listening on ws://localhost:64861/devtools/browser/0c91e657-e734-4211-83f9-d984fda60511
+1698887115177	Marionette	INFO	Stopped listening on port 64715
+1698887252209	geckodriver	INFO	Listening on 127.0.0.1:64932
+1698887252514	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileAtOoT7"
+1698887253669	Marionette	INFO	Marionette enabled
+1698887253719	Marionette	INFO	Listening on port 64938
+WebDriver BiDi listening on ws://localhost:64933
+Read port: 64938
+1698887254614	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1698887255257	Marionette	INFO	Stopped listening on port 64866
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileAtOoT7/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64933/devtools/browser/d8172cd7-3941-44bd-93c5-faa41e3f0df5
+1698887286537	Marionette	INFO	Stopped listening on port 64938
+1698887411173	geckodriver	INFO	Listening on 127.0.0.1:64993
+1698887411455	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileGfQiOa"
+1698887412467	Marionette	INFO	Marionette enabled
+1698887412503	Marionette	INFO	Listening on port 64999
+WebDriver BiDi listening on ws://localhost:64994
+Read port: 64999
+1698887412895	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileGfQiOa/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64994/devtools/browser/7379693f-71a3-48e0-a147-6fdd45d438be
+1698887701797	geckodriver	INFO	Listening on 127.0.0.1:65096
+1698887702101	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileTOvAgk"
+1698887702746	Marionette	INFO	Marionette enabled
+1698887702889	Marionette	INFO	Listening on port 65102
+WebDriver BiDi listening on ws://localhost:65097
+Read port: 65102
+1698887703917	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileTOvAgk/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:65097/devtools/browser/6dba1f1e-711c-4961-9dc1-eb48d3cbd16c
+1698887761049	geckodriver	INFO	Listening on 127.0.0.1:65151
+1698887761261	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile0kl0Lr"
+1698887761376	Marionette	INFO	Stopped listening on port 64999
+1698887762930	Marionette	INFO	Marionette enabled
+1698887763003	Marionette	INFO	Listening on port 65157
+WebDriver BiDi listening on ws://localhost:65152
+Read port: 65157
+Read port: 65157
+1698887764348	Marionette	INFO	Stopped listening on port 65102
+1698887765277	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile0kl0Lr/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:65152/devtools/browser/f4b06564-aee0-4aff-9e89-33137733750b
+1698887811026	Marionette	INFO	Stopped listening on port 65157
+1698887814082	geckodriver	INFO	Listening on 127.0.0.1:65213
+1698887814375	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileO7fIPt"
+1698887815064	Marionette	INFO	Marionette enabled
+1698887815239	Marionette	INFO	Listening on port 65219
+WebDriver BiDi listening on ws://localhost:65214
+Read port: 65219
+1698887815902	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileO7fIPt/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:65214/devtools/browser/9bb6a78d-de93-414f-a210-5a9b5fb33c57
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+1698887820924	Marionette	INFO	Stopped listening on port 65219
+JavaScript error: resource://services-settings/Utils.jsm, line 239: TypeError: NetworkError: Network request failed
+1698888047131	geckodriver	INFO	Listening on 127.0.0.1:65288
+1698888047335	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileQfmnJy"
+1698888048435	Marionette	INFO	Marionette enabled
+1698888048497	Marionette	INFO	Listening on port 65294
+WebDriver BiDi listening on ws://localhost:65289
+Read port: 65294
+Read port: 65294
+1698888050047	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileQfmnJy/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:65289/devtools/browser/15508f73-f4d3-42cb-931c-22d8bce20fa4
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+[GFX1-]: Unrecognized feature ACCELERATED_CANVAS2D
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+1698889423692	geckodriver	INFO	Listening on 127.0.0.1:49223
+1698889424011	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile4WjVFn"
+1698889425233	Marionette	INFO	Marionette enabled
+1698889425306	Marionette	INFO	Listening on port 49231
+WebDriver BiDi listening on ws://localhost:49224
+Read port: 49231
+1698889426044	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1698889426527	Marionette	INFO	Stopped listening on port 65294
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile4WjVFn/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49224/devtools/browser/fbd1e7e8-b212-4f0e-9856-1bd374b86f28
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."

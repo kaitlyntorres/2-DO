@@ -3,6 +3,12 @@ from flask_login import current_user
 from website.models import User, Task
 from werkzeug.security import generate_password_hash, check_password_hash
 import json
+from selenium.webdriver.common.by import By
+from selenium import webdriver
+from selenium.webdriver.firefox.service import Service
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.common.keys import Keys
+import os
 
 """ *** TEST CASES *** """
 """ *** Sprint 1 & 2 *** """
@@ -219,8 +225,83 @@ def test_sorting(client, app):
 
 """ *** Sprint 3 Test Cases *** """
 
-""" # T-07 Ensure that a user can filter by column values
+# T-07 Ensure that a user can filter by column values
+
+## How to use selenium web driver
+# 1. Download: https://sites.google.com/chromium.org/driver/downloads
+
+
+
 def test_search_tasks(client, app):
+
+   # Set up the GeckoDriver using webdriver_manager
+    gecko_service = Service(GeckoDriverManager().install())
+
+    # Create a WebDriver instance using Firefox and the GeckoDriver
+    driver = webdriver.Firefox(service=gecko_service)
+
+    # Navigate to a website (e.g., Google)
+    driver.get("http://127.0.0.1:3000/login")
+
+    #driver.implicitly_wait(10)
+
+    # Find the email and password input fields using WebDriver methods
+    email_field = driver.find_element(By.NAME, "email")
+    password_field = driver.find_element(By.NAME, "password")
+
+    # Enter your login credentials
+    email_field.send_keys("kurt@gmail.com")
+    password_field.send_keys("12345678")
+
+    # Submit the login form
+    password_field.send_keys(Keys.RETURN)
+
+    #Search Terms
+    search_column = "title"
+    search_text = "task1"
+
+    # Find and select the search column dropdown
+    column_select = driver.find_element(By.ID, "columnSelect")
+    column_select.send_keys(search_column)
+
+    # Find and input the search text
+    task_search = driver.find_element(By.ID, "taskSearch")
+    task_search.send_keys(search_text)
+
+    # Wait for a moment (you may need to adjust the waiting time)
+    driver.implicitly_wait(2)
+
+    # Find the tasks table
+    task_table = driver.find_element(By.ID, "task-table")
+
+    # Check if the search results are as expected
+    assert f'task1' in task_table.text
+    #ssert f'task2' not in task_table.text
+    #assert f'task3' not in task_table.text
+
+    search_column2 = "description"
+    search_text2 = "desc2"
+
+    search_column3 = "tag"
+    search_text3 = "tag3"
+
+    search_column4 = "priority"
+    search_text4 = "High"
+
+
+
+
+    # Simulate keyup event
+    task_search.send_keys(Keys.RETURN)
+
+    driver.quit()
+
+    
+
+
+# Old T-07
+""" def test_search_tasks(client, app):
+
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
 

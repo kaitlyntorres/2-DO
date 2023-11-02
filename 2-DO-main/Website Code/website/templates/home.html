@@ -15,10 +15,12 @@
     <option value="description">Description</option>
     <option value="tag">Tag</option>
     <option value="priority">Priority</option>
-    <option value="status">Status</option>
+    <!--<option value="status">Status</option>--> <!-- Will fix this for later-->
   </select>
   <input type="text" id="taskSearch" placeholder="Search for tasks..." onkeyup="searchTasks()">
 </div>
+<!--<button id="helpButton" class="btn btn-primary" onclick="showHelpPage()">Help</button>-->
+
 <br>
 
 <ul class="list-group list-group-flush" id="tasks">
@@ -49,8 +51,13 @@
             onclick="checkComplete('{{ task.id }}')">
         </td> -->
         <td>
-          <input type="checkbox" id="{{ task.id }}" class="complete" name="data_{{ task.status }}" value="{{ task.status }}"
-            onclick="checkComplete('{{ task.id }}')" {% if task.status %}checked{% endif %}>
+          {% if task.status == True %}
+            <input type="checkbox" id="{{ task.id }}" class="complete" name="data_{{ task.status }}" value="{{ task.status }}"
+              onclick="checkComplete('{{ task.id }}')" checked>
+          {%else%}
+            <input type="checkbox" id="{{ task.id }}" class="complete" name="data_{{ task.status }}" value="{{ task.status }}"
+              onclick="checkComplete('{{ task.id }}')" >
+            {% endif %}
         </td>
 
         <td><a href="{{ url_for('views.delete_task', t=task.id) }}"
@@ -274,6 +281,11 @@ function checkComplete(t)
   }
   */
 }
+  function showHelpPage() {
+    // Redirect the user to the help page URL
+    window.location.href = "/help";  // Replace "/help" with your actual help page URL
+  }
+
 </script>
 
 <script>
@@ -316,6 +328,8 @@ function checkComplete(t)
     }
   }
 </script>
+
+
 
 
 

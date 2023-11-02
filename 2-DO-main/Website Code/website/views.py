@@ -90,6 +90,13 @@ def complete_task():
     return render_template("editform.html", user=current_user)
 
 
+@views.route('/help')
+def help():
+    # Add any necessary data to pass to the help page here
+    return render_template('help.html', user=current_user)
+
+
+
     
 
     
