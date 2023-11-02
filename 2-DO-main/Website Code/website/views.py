@@ -1,10 +1,9 @@
-from flask import Blueprint, render_template, request, flash,redirect, url_for
+from flask import Blueprint, render_template, request, flash,redirect, url_for, jsonify
 from flask_login import login_required, current_user
 import datetime
 from .models import Task
 from . import db
 import json
-import jsonify
 import sys
 
 
@@ -22,13 +21,16 @@ def home():
         date = request.form.get('date') #'YYYY-MM-DDTHH:MM'
         tag = request.form.get('tag') 
         priority = request.form.get('priority') #'Low', 'Medium', 'High'
+        reminder_time = request.form.get('reminder_time')
+
 
         # Fixing Date Format || Switing from 'YYYY-MM-DDTHH:MM' to 'YYYY-MM-DD HH:MM'
         formatted_date = date.replace("T", " ")
+        formatted_reminder_time = reminder_time.replace("T", " ")
 
         ## NEED TO ADD NEW TASK TO DATABASE
         # EXAMPLE IS IN AUTH.PY, ALSO LOOK AT OLD VIEWS.PY ON CSC 530 SUPPORT TICKET WEBSITE GITHUB
-        new_task = Task(title=title,user_id=current_user.id,description=description,due_date=formatted_date,tag=tag,priority=priority)
+        new_task = Task(title=title,user_id=current_user.id,description=description,due_date=formatted_date,tag=tag,priority=priority, reminder_time=formatted_reminder_time)
         db.session.add(new_task)
         db.session.commit()
     return render_template("home.html", user=current_user)
@@ -59,11 +61,17 @@ def editform():
     task = Task.query.filter_by(id=taskid).first()
 
     if request.method == "POST":
+
+        # Fixing Date Format || Switing from 'YYYY-MM-DDTHH:MM' to 'YYYY-MM-DD HH:MM'
+        formatted_date = request.form.get('date').replace("T", " ")
+        formatted_reminder_time = request.form.get('reminder_time').replace("T", " ")
+
         task.title = request.form.get('title')
         task.description = request.form.get('description')
-        task.due_date = request.form.get('date')
+        task.due_date = formatted_date
         task.tag = request.form.get('tag')
         task.priority = request.form.get('priority')
+        task.reminder_time = formatted_reminder_time
 
         db.session.commit()
         return redirect(url_for('views.home'))
@@ -87,7 +95,26 @@ def complete_task():
 
     db.session.commit()
 
-    return render_template("editform.html", user=current_user)
+    return render_template("home.html", user=current_user)
+
+@views.route('/get_task/<task_id>')
+def get_task(task_id):
+    # Retrieve the task data based on task_id
+    task = Task.query.get(task_id)
+    
+    task_data = {
+        'id': task.id,
+        'user_id': task.user_id,
+        'title': task.title,
+        'description': task.description,
+        'due_date': task.due_date,
+        'tag': task.tag,
+        'priority': task.priority,
+        'status': task.status,
+        'reminder_time': task.reminder_time
+    }
+
+    return jsonify(task_data)
 
 
 @views.route('/help')

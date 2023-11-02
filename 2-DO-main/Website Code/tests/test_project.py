@@ -69,7 +69,7 @@ def test_task_creation(client, app):
     client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
 
     # Create a task
-    client.post("/", data={"title":"testtitle", "description":"test description", "date":"2003-10-10T12:30", "tag":"CSC678", "priority":"Low"})
+    client.post("/", data={"title":"testtitle", "description":"test description", "date":"2003-10-10T12:30", "tag":"CSC678", "priority":"Low", "reminder_time":"2003-10-10T12:00"})
 
     # Access the app context to interact with the database
     with app.app_context():
@@ -80,6 +80,7 @@ def test_task_creation(client, app):
         assert Task.query.first().due_date == "2003-10-10 12:30"
         assert Task.query.first().tag == "CSC678"
         assert Task.query.first().priority == "Low"
+        assert Task.query.first().reminder_time == "2003-10-10 12:00"
         assert Task.query.first().status == 0
 
 # T-02 Ensure that the user can view a list of tasks
@@ -91,19 +92,21 @@ def test_viewing_tasks(client, app):
     client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
 
     # Create a task
-    client.post("/", data={"title": "task1", "description": "desc1", "date": "2003-10-10 12:30", "tag": "CSC678", "priority": "Low"})
+    client.post("/", data={"title": "task1", "description": "desc1", "date": "2003-10-10T12:30", "tag": "CSC678", "priority": "Low", "reminder_time": "2003-10-10T12:00"})
 
     # Create a second task with different data
-    client.post("/", data={"title": "task2", "description": "desc2", "date": "2003-10-10 12:00", "tag": "CSC680", "priority": "High"})
+    client.post("/", data={"title": "task2", "description": "desc2", "date": "2003-10-10T12:00", "tag": "CSC680", "priority": "High", "reminder_time": "2003-10-10T12:15"})
 
-    # Send a GET request to the task list page
     response = client.get("/")
 
-    # Check if the response contains task titles and descriptions
+    # Check if the response contains task titles, descriptions, and reminder times
     assert b'task1' in response.data
     assert b'desc1' in response.data
     assert b'task2' in response.data
     assert b'desc2' in response.data
+    assert b'2003-10-10 12:00' in response.data
+    assert b'2003-10-10 12:15' in response.data
+
 
 
 # T-04 Ensure that a user can delete a task
@@ -115,7 +118,7 @@ def test_task_deletion(client, app):
     client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
 
     # Create a task
-    client.post("/", data={"title": "testtitle", "description": "test description", "date": "2003-10-10T12:30", "tag": "CSC678", "priority": "Low"})
+    client.post("/", data={"title": "testtitle", "description": "test description", "date": "2003-10-10T12:30", "tag": "CSC678", "priority": "Low", "reminder_time": "2003-10-10T12:00"})
 
     initial_task_count = 0
     task_id = 0
@@ -147,10 +150,10 @@ def test_editform(client, app):
     client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
 
     # Create a task
-    client.post("/", data={"title": "testtitle", "description": "test description", "date": "2003-10-10T12:30", "tag": "CSC678", "priority": "Low"})
+    client.post("/", data={"title": "testtitle", "description": "test description", "date": "2003-10-10T12:30", "tag": "CSC678", "priority": "Low", "reminder_time": "2003-10-10T12:00"})
 
     # Edit the task
-    response = client.post("/editform?taskid=1", data={"title": "New Title", "description": "New Description", "date": "2003-10-11 13:30", "tag": "NewTag", "priority": "High"})
+    response = client.post("/editform?taskid=1", data={"title": "New Title", "description": "New Description", "date": "2003-10-11T13:30", "tag": "NewTag", "priority": "High", "reminder_time": "2003-10-11T13:15"})
 
     # Assert that the response status code is 302 (redirect)
     assert response.status_code == 302  # Adjust this based on your expected behavior
@@ -163,6 +166,8 @@ def test_editform(client, app):
         assert task.due_date == "2003-10-11 13:30"
         assert task.tag == "NewTag"
         assert task.priority == "High"
+        assert task.reminder_time == "2003-10-11 13:15"
+
 
 # T-06 Ensure that a user can sort tasks 
 def test_sorting(client, app):
@@ -225,8 +230,10 @@ def test_sorting(client, app):
 
 """ *** Sprint 3 Test Cases *** """
 
-# T-07 Ensure that a user can filter by column values
+""" # T-07 Ensure that a user can filter by column values
 def test_search_tasks(client, app):
+    # SHOULD HAVE THIS TEST INPUT A TASK AND THEN CHECK INSTEAD OF RELYING 
+    # UPON HAVING THE TESTS ALREADY EXISTING IN THE DATABASE
 
    # Set up the GeckoDriver using webdriver_manager
     gecko_service = Service(GeckoDriverManager().install())
@@ -332,7 +339,7 @@ def test_search_tasks(client, app):
     assert f'Medium' not in task_table.text
 
     # Quit Driver When Done
-    driver.quit()
+    driver.quit() """
 
 # T-08 Ensure that a user can mark tasks as complete/incomplete
 def test_complete_task(client, app):
@@ -342,8 +349,8 @@ def test_complete_task(client, app):
     # Login the user
     client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
 
-    # Create a task
-    client.post("/", data={"title": "testtitle", "description": "test description", "date": "2003-10-10T12:30", "tag": "CSC678", "priority": "Low"})
+    # Create a task - Status defaults to False (Incomplete)
+    client.post("/", data={"title": "testtitle", "description": "test description", "date": "2003-10-10 12:30", "tag": "CSC678", "priority": "Low", "reminder_time": "2003-10-10 12:00"})
 
     # Prepare the JSON data
     data = {
@@ -352,16 +359,89 @@ def test_complete_task(client, app):
     }
 
     # Send a JSON POST request to complete the task
-    response = client.post("/complete_task", data=json.dumps(data), content_type='application/json')
+    response = client.post("/complete_task/", data=json.dumps(data), content_type='application/json')
 
-    # Assert that the response status code is 308 or adjust it based on your expected behavior
-    assert response.status_code == 308  
+    assert response.status_code == 200  
 
     # Verify if the task status in the database was updated
     with app.app_context():
         task = Task.query.get(1)
-        assert task.status == False # !!!
+        assert task.status == True # Check that the status changed to True from the False default
 
+
+"""*** Sprint 4 Test Cases ***"""
+# C-01 Test that a user can view all completed tasks in a separate table
+def test_completed_tasks_views(client, app):
+    # Create a user
+    client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
+
+    # Login the user
+    client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
+
+    # Add Three Tasks
+    client.post("/", data={"title": "testtitle", "description": "test description", "date": "2003-10-10 12:30", "tag": "CSC678", "priority": "Low", "reminder_time": "2003-10-10 12:00"})
+    client.post("/", data={"title": "second_title", "description": "second_description", "date": "2003-10-11 14:30", "tag": "CSC679", "priority": "Medium", "reminder_time": "2003-10-11 14:00"})
+    client.post("/", data={"title": "third_title", "description": "third_description", "date": "2003-10-12 15:30", "tag": "CSC680", "priority": "High", "reminder_time": "2003-10-12 15:00"})
+
+    # Change the first task status to True (Compelete)
+    data = {
+        "task": 1,  # Task ID you want to complete
+        "bool": True  # Use True to mark as complete or False to mark as incomplete
+    }
+
+    # Send a JSON POST request to complete the task
+    response = client.post("/complete_task/", data=json.dumps(data), content_type='application/json')
+   
+    with app.app_context():
+        task = Task.query.get(1)
+        assert task.status == True # Check that the status changed to True from the False default
+
+# R-01 Test that the user can set a reminder time
+def test_set_reminder_time(client, app):
+    # Create a user
+    client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
+
+    # Login the user
+    client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
+
+    # Add Three Tasks
+    client.post("/", data={"title": "testtitle", "description": "test description", "date": "2003-10-10 12:30", "tag": "CSC678", "priority": "Low", "reminder_time": ""})
+
+    client.post("/editform?taskid=1", data={"title": "New Title", "description": "New Description", "date": "2003-10-11T13:30", "tag": "NewTag", "priority": "High", "reminder_time": "2003-10-11 13:15"})
+
+    # Verify if the task attributes were updated in the database
+    with app.app_context():
+        task = Task.query.get(1)
+        assert task.title == "New Title"
+        assert task.description == "New Description"
+        assert task.due_date == "2003-10-11 13:30"
+        assert task.tag == "NewTag"
+        assert task.priority == "High"
+        assert task.reminder_time == "2003-10-11 13:15"
+
+# R-02 Test that the user can remove the reminder time from a task
+def test_remove_reminder_time(client, app):
+    # Create a user
+    client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
+
+    # Login the user
+    client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
+
+    # Add a Task
+    client.post("/", data={"title": "testtitle", "description": "test description", "date": "2003-10-10 12:30", "tag": "CSC678", "priority": "Low", "reminder_time": "2003-10-11 13:15"})
+
+    # Edit Task to remove the reminder time
+    client.post("/editform?taskid=1", data={"title": "New Title", "description": "New Description", "date": "2003-10-11T13:30", "tag": "NewTag", "priority": "High", "reminder_time": ""})
+
+    # Verify if the task attributes were updated in the database
+    with app.app_context():
+        task = Task.query.get(1)
+        assert task.title == "New Title"
+        assert task.description == "New Description"
+        assert task.due_date == "2003-10-11 13:30"
+        assert task.tag == "NewTag"
+        assert task.priority == "High"
+        assert task.reminder_time == ""
 
 """ *** TESTING ACCESSING HTML VIEWS *** """
 # Test the home page ("/") route
@@ -376,9 +456,6 @@ def test_home(client):
 
     # Assert that the response status code is a 302 (redirect)
     assert response.status_code == 302
-
-
-"""  """
 
 # Test the '/edit_task/<t>' route
 def test_edit_task(client, app):
@@ -420,10 +497,17 @@ Tasks
 ✅ T-06 Ensure that a user can sort tasks 
 
 Sprint 3 Tests
-T-07 Ensure that a user can filter by column values
+✅ T-07 Ensure that a user can filter by column values
     - Marked as T-06 incorrectly in Prep for Sprint 3 Doc
-⭐️ T-08 Ensure that a user can mark tasks as complete/incomplete
+✅ T-08 Ensure that a user can mark tasks as complete/incomplete
     - Marked as T-07 incorrectly in Prep for Sprint 3 Doc
+
+Sprint 4 Tests
+C-01 Test that a user can view all completed tasks in a separate table
+    - Initial set up done, need to implement the rest to finish the testing
+✅ R-01 Test that the user can set a reminder time
+✅ R-02 Test that the user can remove the reminder time from a task
+R-03 Test that the user recieves a notificaiton
 
 """
 

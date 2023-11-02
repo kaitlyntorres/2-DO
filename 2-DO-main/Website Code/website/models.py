@@ -15,6 +15,7 @@ class Task(db.Model):
     tag = db.Column(db.String(6)) 
     priority = db.Column(db.String(6)) #should only be 'Low', 'Medium', 'High'
     status = db.Column(db.Boolean, default=False) #False for incomplete, True for complete
+    reminder_time = db.Column(db.String(40))
 
 
 class User(db.Model, UserMixin):
