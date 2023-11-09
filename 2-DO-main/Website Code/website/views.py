@@ -143,5 +143,5 @@ def to_csv():
     filename=str(current_user.first_name)+" "+str(current_user.last_name)+ "'s Tasks.csv"
     return send_file(os.path.abspath('task.csv'),
                      mimetype='text/csv',
-                     attachment_filename=filename,
+                     download_name=filename,
                      as_attachment=True)
