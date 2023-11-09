@@ -38,7 +38,7 @@ Users should be able to mark tasks as complete or incomplete  = <b>COMPLETE</b> 
 
 ## Sprint 4 = IN PROGRESS
 Users could be able to see a list of tasks that have already passed (task history) <br />
-Users could get reminders when their tasks is approaching<br />
+Users could get reminders when their tasks is approaching = <b>COMPLETE</b><br />
 
 
 ## Sprint 5 = PENDING
