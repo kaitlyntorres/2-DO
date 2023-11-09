@@ -43,7 +43,7 @@ Users could get reminders when their tasks is approaching<br />
 
 ## Sprint 5 = PENDING
 Users could categorize tasks and sort based on tags <br />
-Users could export tasks to CSV<br />
+Users could export tasks to CSV  = <b>COMPLETE</b><br />
 Users could have tasks with a specified date added to a calendar
 
 # Status
