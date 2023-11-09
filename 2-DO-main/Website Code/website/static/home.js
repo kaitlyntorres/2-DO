@@ -59,39 +59,6 @@ function getStatusValue(checkbox) {
     return checkbox.value === "True" ? 1 : 0; // 1 for complete (True), 0 for incomplete (False)
 }
 
-/* <!-- <script>
-
-  function sortTable(num) {
-  var table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("task-table");
-  switching = true;
-
-  while (switching) {
-    // Start by saying: no switching is done:
-    switching = false;
-    rows = table.rows;
-
-    for (i = 1; i < (rows.length - 1); i++) {
-      // Start by saying there should be no switching:
-      shouldSwitch = false;
-
-      x = rows[i].getElementsByTagName("TD")[num];
-      y = rows[i + 1].getElementsByTagName("TD")[num];
-      // Check if the two rows should switch place:
-      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-        // If so, mark as a switch and break the loop:
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-    }
-  }
-}
-</script> -->
-<!-- THIS IS A TEMP CHANGE FOR SORTING --> */
 
 
 // Helper function to convert priority text to sortable value
@@ -175,24 +142,6 @@ function searchTasks() {
     }
 }
 
-function showNotificationMessage(message, category) {
-    const notificationContainer = document.getElementById('notification-container');
-
-    // Create a new notification element
-    const notification = document.createElement('div');
-    notification.classList.add('notification', category); // Add CSS classes for styling
-
-    // Set the content of the notification
-    notification.innerText = message;
-
-    // Append the notification to the container
-    notificationContainer.appendChild(notification);
-
-    // Auto-hide the notification after a few seconds (adjust as needed)
-    setTimeout(() => {
-        notification.remove();
-    }, 5000); // 5000 milliseconds (5 seconds) in this example
-}
 
 
 function scheduleNotification(task_id) {
@@ -248,8 +197,6 @@ function showNotification(task_id) {
                     return;
                 }
 
-                showNotificationMessage('Reminder Set!', 'success');
-
                 setTimeout(() => {
                     if (Notification.permission === 'granted') {
                         const notification = new Notification(taskName, {
@@ -273,50 +220,3 @@ function showNotification(task_id) {
         })
         .catch(error => console.error('Error:', error));
 }
-
-
-function moveToCompleted(checkbox) {
-    const taskRow = checkbox.parentElement.parentElement; // Get the task row
-    const completedTasksTable = document.getElementById("completed-tasks").getElementsByTagName("tbody")[0];
-
-    // Clone the task row and append it to the completed tasks table
-    completedTasksTable.appendChild(taskRow);
-
-    // Show the completed tasks table
-    document.getElementById("completed-tasks").style.display = "block";
-
-    // Remove the checkbox's change event listener
-    checkbox.removeEventListener("change", moveToCompleted);
-
-    // Attach a new change event listener to mark the task as incomplete
-    checkbox.addEventListener("change", moveToIncomplete);
-}
-
-
-  function moveToIncomplete(checkbox) {
-    const taskRow = checkbox.parentElement.parentElement; // Get the task row
-    const incompleteTasksTable = document.getElementById("incomplete-tasks").getElementsByTagName("tbody")[0];
-
-    // Clone the task row and append it to the incomplete tasks table
-    incompleteTasksTable.appendChild(taskRow);
-  }
-
-  // Attach event listeners to the checkboxes for marking tasks as complete
-  const checkboxes = document.getElementById("incomplete-tasks").getElementsByTagName("input");
-  for (const checkbox of checkboxes) {
-    checkbox.addEventListener("change", function () {
-      if (this.checked) {
-        moveToCompleted(this);
-      }
-    });
-  }
-
-  // Attach event listeners to the checkboxes in the completed tasks table for marking tasks as incomplete
-  const completedCheckboxes = document.getElementById("completed-tasks").getElementsByTagName("input");
-  for (const checkbox of completedCheckboxes) {
-    checkbox.addEventListener("change", function () {
-      if (!this.checked) {
-        moveToIncomplete(this);
-      }
-    });
-  }

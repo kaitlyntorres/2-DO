@@ -1,10 +1,14 @@
-from flask import Blueprint, render_template, request, flash,redirect, url_for, jsonify
+from flask import Blueprint, render_template, request, flash,redirect, url_for, jsonify,send_file
+
 from flask_login import login_required, current_user
 import datetime
 from .models import Task
+from .models import User
 from . import db
 import json
 import sys
+import os
+import csv
 
 
 #This application has a bunch of URLs defined here so that we can have our views defined in several files and not a single one
@@ -33,8 +37,6 @@ def home():
         new_task = Task(title=title,user_id=current_user.id,description=description,due_date=formatted_date,tag=tag,priority=priority, reminder_time=formatted_reminder_time)
         db.session.add(new_task)
         db.session.commit()
-
-        return redirect(url_for('views.home'))
     return render_template("home.html", user=current_user)
 
 
@@ -116,10 +118,6 @@ def get_task(task_id):
         'reminder_time': task.reminder_time
     }
 
-    #msg_text = '%s Reminder Set' % str(task)
-    #flash(msg_text)
-    #flash('Reminder Set!', category='success')
-
     return jsonify(task_data)
 
 
@@ -128,13 +126,22 @@ def help():
     # Add any necessary data to pass to the help page here
     return render_template('help.html', user=current_user)
 
-
-
-    
-
-    
-
-
-
-
-
+#exports task to csv
+@views.route('/to_csv/')
+@login_required
+def to_csv():
+    with open('task.csv','w',newline='') as csv_file:
+        write_csv=csv.writer(csv_file,delimiter=',')
+        #creates header row
+        write_csv.writerow(['ID','Date and Time','Title','Description','Tag','Priority','Static','Reminder Time'])
+        #grabs all rows in Task Table
+        rows = Task.query.all()
+        #writes each row to csv
+        for task in rows:
+            write_csv.writerow([task.id,task.due_date,task.title,task.description,task.tag,task.priority,task.status,task.reminder_time])
+    #returns it as a download with user's first and last name
+    filename=str(current_user.first_name)+" "+str(current_user.last_name)+ "'s Tasks.csv"
+    return send_file(os.path.abspath('task.csv'),
+                     mimetype='text/csv',
+                     attachment_filename=filename,
+                     as_attachment=True)

@@ -1,6 +1,7 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
 <script src="{{ url_for('static', filename='home.js') }}"></script>
-<div id="notification-container"></div>
 
 <h1 align="center">Welcome {{ user.first_name }}, User ID: {{ user.id }}</h1>
 
@@ -47,27 +48,46 @@
         <td>{{ task.description }}</td>
         <td>{{ task.tag }}</td>
         <td>{{ task.priority }}</td>
+        <!-- <td>
+          <input type="checkbox" id="{{ task.id }}" class="complete" name="data_{{ False }}" value="{{ False }}"
+            onclick="checkComplete('{{ task.id }}')">
+        </td> -->
         <td>
           {% if task.status == True %}
-          <input type="checkbox" id="{{ task.id }}" class="complete" name="data_{{ task.status }}"
-            value="{{ task.status }}" onclick="checkComplete('{{ task.id }}')" checked> {%else%}
-          <input type="checkbox" id="{{ task.id }}" class="complete" name="data_{{ task.status }}"
-            value="{{ task.status }}" onclick="checkComplete('{{ task.id }}')"> {% endif %}
+            <input type="checkbox" id="{{ task.id }}" class="complete" name="data_{{ task.status }}" value="{{ task.status }}"
+              onclick="checkComplete('{{ task.id }}')" checked>
+          {%else%}
+            <input type="checkbox" id="{{ task.id }}" class="complete" name="data_{{ task.status }}" value="{{ task.status }}"
+              onclick="checkComplete('{{ task.id }}')" >
+            {% endif %}
         </td>
         <td>{{ task.reminder_time }}</td>
 
         <td><a href="{{ url_for('views.delete_task', t=task.id) }}"
-            onclick="return confirm('Do you want to permanently delete task {{ task.id }}?');" title="Delete Task"><i
-              class="fas fa-trash-alt"></i></a>
+            onclick="return confirm('Do you want to permanently delete task {{ task.id }}?');"
+            title="Delete Task">Delete Task</a>
         </td>
-        <td><a href="/editform?taskid={{ task.id }}"><i class="fas fa-edit"></i></a></td>
-        <td><a href="#" onclick="scheduleNotification('{{ task.id }}')"><i class="fas fa-bell"></i></a></td>
-
+        <td><a href="/editform?taskid={{ task.id }}">Edit Task</a></td>
+        <td><button onclick="scheduleNotification('{{ task.id }}')">Notification</button></td>
       </tr>
+
+<!--       <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr> Add space between rows || CHANGE TO MAKE IT LOOK CLEANER-->
       {% endfor %}
     </tbody>
   </table>
 </ul>
+<br><br>
+<a href="{{ url_for('views.to_csv')}}">Export to CSV</a>
+<br><br>
 
 <h3>Add Information About Your Task: </h3>
 <form method="POST">
@@ -106,4 +126,51 @@
   </div>
   <br>
 </form>
+
+<!-- <script>
+  /* REFERENCED FROM W3SCHOOLS*/
+
+  function sortTable(num) {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("task-table");
+  switching = true;
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[num];
+      y = rows[i + 1].getElementsByTagName("TD")[num];
+      // Check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        // If so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+</script> -->
+<!-- THIS IS A TEMP CHANGE FOR SORTING -->
+
+
+
+
+
+
+
 {% endblock %}
