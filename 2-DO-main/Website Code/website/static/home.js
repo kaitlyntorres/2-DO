@@ -116,7 +116,7 @@ function searchTasks() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("taskSearch");
     filter = input.value.toUpperCase();
-    table = document.getElementById("task-table");
+    table = document.getElementById("task-table1");
     tr = table.getElementsByTagName("tr");
 
     for (i = 0; i < tr.length; i++) {

@@ -17,12 +17,10 @@
     <option value="priority">Priority</option>
     <!--<option value="status">Status</option>--> <!-- Will fix this for later-->
   </select>
-  <input type="text" id="taskSearch" placeholder="Search for tasks..." onkeyup="searchTasks()">
+  <input type="text" id="taskSearch" placeholder="Search for tasks..." onkeyup="searchTasks('task-table1')">
 </div>
 <!--<button id="helpButton" class="btn btn-primary" onclick="showHelpPage()">Help</button>-->
-
 <br>
-
 <ul class="list-group list-group-flush" id="tasks">
   <div id="incomplete-tasks">
     <h2>Incomplete Tasks</h2>
@@ -89,6 +87,19 @@
   </table>
   </div>
   <br>
+  <!-- SEARCH BAR -->
+  <div class="search-container">
+    <label for="columnSelect">Search in Column:</label>
+    <select id="columnSelect" name="columnSelect" onchange="changeSearchColumn()">
+      <option value="title">Title</option>
+      <option value="description">Description</option>
+      <option value="tag">Tag</option>
+      <option value="priority">Priority</option>
+      <!--<option value="status">Status</option>--> <!-- Will fix this for later-->
+    </select>
+    <input type="text" id="taskSearch" placeholder="Search for tasks..." onkeyup="searchTasks('task-table2')">
+  </div>
+  <!--<button id="helpButton" class="btn btn-primary" onclick="showHelpPage()">Help</button>-->
   <div id="complete-tasks">
     <h2>Complete Tasks</h2>
     <table class="searchable sortable" id="task-table2">
