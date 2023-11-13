@@ -129,21 +129,17 @@ def help():
 @views.route('/to_csv/')
 @login_required
 def to_csv():
-    with open('task.csv','w',newline='') as csv_file:
+    with open('alltasks.csv','w',newline='') as csv_file:
         write_csv=csv.writer(csv_file,delimiter=',')
         #creates header row
-        write_csv.writerow(['ID','Date and Time','Title','Description','Tag','Priority','Static','Reminder Time'])
+        write_csv.writerow(['ID','Date and Time','Title','Description','Tag','Priority','Status','Reminder Time'])
         #grabs all rows in Task Table
         rows = Task.query.all()
+        #rows=Task.query.filter(Task.status.is_(False)).all()
+        #rows=.query(fellowers).filter_by(id = fellow_id).one()
         #writes each row to csv
         for task in rows:
             write_csv.writerow([task.id,task.due_date,task.title,task.description,task.tag,task.priority,task.status,task.reminder_time])
-    #returns it as a download with user's first and last name
-    filename=str(current_user.first_name)+" "+str(current_user.last_name)+ "'s Tasks.csv"
-    return send_file(os.path.abspath('task.csv'),
-                     mimetype='text/csv',
-                     download_name=filename,
-                     as_attachment=True)
 
     
 
