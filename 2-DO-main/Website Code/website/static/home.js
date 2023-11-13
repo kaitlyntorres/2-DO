@@ -112,9 +112,9 @@ function changeSearchColumn() {
     searchTasks();
 }
 
-function searchTasks(tableId) {
+function searchTasks(tableId, inputId) {
     var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("taskSearch");
+    input = document.getElementById(inputId);
     filter = input.value.toUpperCase();
     table = document.getElementById(tableId);
     tr = table.getElementsByTagName("tr");
