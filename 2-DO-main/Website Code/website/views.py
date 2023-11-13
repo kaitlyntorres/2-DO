@@ -7,6 +7,7 @@ import json
 import sys
 import csv
 import os
+import pandas as pd
 
 
 #This application has a bunch of URLs defined here so that we can have our views defined in several files and not a single one
