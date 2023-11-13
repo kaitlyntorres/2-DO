@@ -141,6 +141,49 @@ def to_csv():
         for task in rows:
             write_csv.writerow([task.id,task.due_date,task.title,task.description,task.tag,task.priority,task.status,task.reminder_time])
 
+
+    with open('incompletetasks.csv','w',newline='') as csv_file:
+        write_csv=csv.writer(csv_file,delimiter=',')
+        #creates header row
+        write_csv.writerow(['ID','Date and Time','Title','Description','Tag','Priority','Status','Reminder Time'])
+        #grabs all rows in Task Table
+        #rows = Task.query.all()
+        rows=Task.query.filter(Task.status.is_(False)).all()
+        #rows=.query(fellowers).filter_by(id = fellow_id).one()
+        #writes each row to csv
+        for task in rows:
+            write_csv.writerow([task.id,task.due_date,task.title,task.description,task.tag,task.priority,task.status,task.reminder_time])
+
+
+        with open('completetasks.csv','w',newline='') as csv_file:
+            write_csv=csv.writer(csv_file,delimiter=',')
+            #creates header row
+            write_csv.writerow(['ID','Date and Time','Title','Description','Tag','Priority','Status','Reminder Time'])
+            #grabs all rows in Task Table
+            #rows = Task.query.all()
+            rows=Task.query.filter(Task.status.is_(True)).all()
+            #rows=.query(fellowers).filter_by(id = fellow_id).one()
+            #writes each row to csv
+            for task in rows:
+                write_csv.writerow([task.id,task.due_date,task.title,task.description,task.tag,task.priority,task.status,task.reminder_time])
+ 
+    #returns it as a download with user's first and last name
+    filename=str(current_user.first_name)+" "+str(current_user.last_name)+ "'s Tasks.xlsx"
+
+    writer = pd.ExcelWriter(filename, engine='xlsxwriter')
+    df1= pd.read_csv('alltasks.csv')
+    df1.to_excel(writer, sheet_name=os.path.basename('All Tasks'))
+    df2= pd.read_csv('incompletetasks.csv')
+    df2.to_excel(writer, sheet_name=os.path.basename('Incomplete Tasks'))
+    df3= pd.read_csv('completetasks.csv')
+    df3.to_excel(writer, sheet_name=os.path.basename('Complete Tasks'))
+    writer.close()
+
+    return send_file(os.path.abspath(filename),
+                     mimetype='text/csv',
+                     download_name=filename,
+                     as_attachment=True)
+
     
 
     
