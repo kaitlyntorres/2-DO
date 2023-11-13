@@ -56,13 +56,31 @@
         </td>
         <td>{{ task.reminder_time }}</td>
 
-        <td><a href="{{ url_for('views.delete_task', t=task.id) }}"
+<!--         <td><a href="{{ url_for('views.delete_task', t=task.id) }}"
           onclick="return confirm('Do you want to permanently delete task {{ task.id }}?');"
           title="Delete Task">Delete Task</a>
       </td>
       <td><a href="/editform?taskid={{ task.id }}">Edit Task</a></td>
-      <td><button onclick="scheduleNotification('{{ task.id }}')">Notification</button></td>
+      <td><button onclick="scheduleNotification('{{ task.id }}')">Notification</button></td> -->
 
+      <td>
+        <a href="{{ url_for('views.delete_task', t=task.id) }}"
+          onclick="return confirm('Do you want to permanently delete task {{ task.id }}?');" title="Delete Task">
+          <i class="fas fa-trash-alt"></i> 
+        </a>
+      </td>
+      
+      <td>
+        <a href="/editform?taskid={{ task.id }}">
+          <i class="fas fa-edit"></i>
+        </a>
+      </td>
+      
+      <td>
+        <a href="#" onclick="scheduleNotification('{{ task.id }}')">
+          <i class="fas fa-bell"></i>
+        </a>
+      </td>
       
       </tr>
       {%endif%}
@@ -103,12 +121,24 @@
           </td>
           <td>{{ task.reminder_time }}</td>
 
-          <td><a href="{{ url_for('views.delete_task', t=task.id) }}"
-            onclick="return confirm('Do you want to permanently delete task {{ task.id }}?');"
-            title="Delete Task">Delete Task</a>
-        </td>
-        <td><a href="/editform?taskid={{ task.id }}">Edit Task</a></td>
-        <td><button onclick="scheduleNotification('{{ task.id }}')">Notification</button></td>
+          <td>
+            <a href="{{ url_for('views.delete_task', t=task.id) }}"
+              onclick="return confirm('Do you want to permanently delete task {{ task.id }}?');" title="Delete Task">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          </td>
+          
+          <td>
+            <a href="/editform?taskid={{ task.id }}">
+              <i class="fas fa-edit"></i>
+            </a>
+          </td>
+          
+          <td>
+            <a href="#" onclick="scheduleNotification('{{ task.id }}')">
+              <i class="fas fa-bell"></i>
+            </a>
+          </td>
   
   
         </tr>
