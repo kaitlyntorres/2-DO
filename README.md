@@ -41,10 +41,10 @@ Users could be able to see a list of tasks that have already passed (task histor
 Users could get reminders when their tasks is approaching = <b>COMPLETE</b><br />
 
 
-## Sprint 5 = PENDING
-Users could categorize tasks and sort based on tags <br />
+## Sprint 5 = IN PROGRESS
+Users could categorize tasks and sort based on tags = <b>COMPLETE</b> <br />
 Users could export tasks to CSV  = <b>COMPLETE</b><br />
 Users could have tasks with a specified date added to a calendar
 
 # Status
-This Project is entering Sprint 4 of production
+This Project is entering Sprint 5 of production
