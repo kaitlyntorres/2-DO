@@ -142,6 +142,20 @@ function searchTasks(tableId, inputId) {
     }
 }
 
+function showNotificationMessage(message, category) {
+    const notificationContainer = document.getElementById('notification-container');
+    // Create a new notification element
+    const notification = document.createElement('div');
+    notification.classList.add('notification', category); // Add CSS classes for styling
+    // Set the content of the notification
+    notification.innerText = message;
+    // Append the notification to the container
+    notificationContainer.appendChild(notification);
+    // Auto-hide the notification after a few seconds (adjust as needed)
+    setTimeout(() => {
+        notification.remove();
+    }, 5000); // 5000 milliseconds (5 seconds) in this example
+}
 
 
 function scheduleNotification(task_id) {
@@ -196,6 +210,8 @@ function showNotification(task_id) {
                     alert("Invalid reminder time");
                     return;
                 }
+
+                 showNotificationMessage('Reminder Set!', 'success');
 
                 setTimeout(() => {
                     if (Notification.permission === 'granted') {

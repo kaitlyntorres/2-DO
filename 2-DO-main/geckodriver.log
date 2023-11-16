@@ -48,3 +48,31 @@ DevTools listening on ws://localhost:54110/devtools/browser/830e4acb-e2f0-40de-a
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
 1698907734024	Marionette	INFO	Stopped listening on port 54115
+1700176188691	geckodriver	INFO	Listening on 127.0.0.1:60934
+1700176188966	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileup93gw"
+1700176190227	Marionette	INFO	Marionette enabled
+1700176190510	Marionette	INFO	Listening on port 60940
+Read port: 60940
+WebDriver BiDi listening on ws://127.0.0.1:60935
+1700176191393	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileup93gw/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60935/devtools/browser/7045d103-a35d-4687-995d-5162e8a230b0
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 118: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 118: TypeError: input is null
+1700176232183	geckodriver	INFO	Listening on 127.0.0.1:60993
+1700176232506	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile16V93l"
+1700176233409	Marionette	INFO	Marionette enabled
+1700176233764	Marionette	INFO	Listening on port 60999
+Read port: 60999
+WebDriver BiDi listening on ws://127.0.0.1:60994
+1700176233920	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile16V93l/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60994/devtools/browser/7721133f-969e-4d21-bd13-80c0b0274e57
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 118: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 118: TypeError: input is null
+1700176266195	Marionette	INFO	Stopped listening on port 60999
+1700176269924	Marionette	INFO	Stopped listening on port 60940
