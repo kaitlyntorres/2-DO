@@ -19,7 +19,7 @@ with the other tasks to view. Users will have the ability to delete any tasks th
 
 
 # Sprints
-## Sprint 1 = COMPLETE
+## Sprint 1 = DONE
 Users must be able to add new tasks to todo list = <b>COMPLETE</b> <br />
 Users must be able to create an account for the web application = <b>COMPLETE</b><br />
 Users must be able to log into the web application before being able to use its functionality = <b>COMPLETE</b> <br />
