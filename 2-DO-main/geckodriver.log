@@ -1033,3 +1033,5 @@ interaction.flushEventLoop@chrome://remote/content/marionette/interaction.sys.mj
 webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173:31
 1700884869980	Marionette	INFO	Stopped listening on port 58312
 1700884908981	Marionette	INFO	Stopped listening on port 58252
+1700886013046	Marionette	INFO	Stopped listening on port 51820
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.

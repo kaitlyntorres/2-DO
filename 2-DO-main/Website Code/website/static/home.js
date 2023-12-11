@@ -16,9 +16,13 @@ function sortTable(num,x) {
             x = rows[i].getElementsByTagName("TD")[num];
             y = rows[i + 1].getElementsByTagName("TD")[num];
 
-            if (num == 0 || num == 1) {
+            if (num == 0) {
                 var xValue = Number(x.innerHTML);
                 var yValue = Number(y.innerHTML);
+            } else if (num == 1) {
+                // Compare date strings directly
+                xValue = xCell.innerHTML;
+                yValue = yCell.innerHTML;
             } else if (num == 5) {
                 var xValue = getPriorityValue(x.innerHTML);
                 var yValue = getPriorityValue(y.innerHTML);
