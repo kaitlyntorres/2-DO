@@ -95,3 +95,483 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: http://1
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
 1702263741316	Marionette	INFO	Stopped listening on port 52789
+[GFX1-]: Unrecognized feature ACCELERATED_CANVAS2D
+1702264083825	geckodriver	INFO	Listening on 127.0.0.1:52887
+1702264084138	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilejW38HX"
+1702264086648	Marionette	INFO	Marionette enabled
+[GFX1-]: Unrecognized feature ACCELERATED_CANVAS2D
+1702264087356	Marionette	INFO	Listening on port 52909
+Read port: 52909
+WebDriver BiDi listening on ws://127.0.0.1:52888
+1702264087906	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilejW38HX/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52888/devtools/browser/920f6682-48f1-4866-85a7-89d68d0c7726
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+1702264106438	geckodriver	INFO	Listening on 127.0.0.1:52968
+1702264106717	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilemKfZjv"
+1702264108764	Marionette	INFO	Marionette enabled
+1702264109648	Marionette	INFO	Listening on port 52976
+Read port: 52976
+WebDriver BiDi listening on ws://127.0.0.1:52969
+1702264109871	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilemKfZjv/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52969/devtools/browser/45fedd14-e534-4977-855f-24c3d6dab93b
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+1702264134498	geckodriver	INFO	Listening on 127.0.0.1:53046
+1702264134856	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileQsAGQz"
+1702264136132	Marionette	INFO	Marionette enabled
+1702264136339	Marionette	INFO	Listening on port 53054
+Read port: 53054
+WebDriver BiDi listening on ws://127.0.0.1:53047
+1702264136572	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileQsAGQz/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53047/devtools/browser/52c7471b-d665-4e6b-86c9-e458fb639e6e
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+1702264150255	Marionette	INFO	Stopped listening on port 53054
+[GFX1-]: Unrecognized feature ACCELERATED_CANVAS2D
+[GFX1-]: Unrecognized feature ACCELERATED_CANVAS2D
+1702264503194	geckodriver	INFO	Listening on 127.0.0.1:53137
+1702264503671	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileOd42uP"
+1702264507928	Marionette	INFO	Marionette enabled
+1702264513345	Marionette	INFO	Listening on port 53153
+Read port: 53153
+WebDriver BiDi listening on ws://127.0.0.1:53138
+1702264513878	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileOd42uP/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53138/devtools/browser/e7928b48-6255-4b0e-b134-fdf165e14203
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+1702264536672	geckodriver	INFO	Listening on 127.0.0.1:53210
+1702264537048	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile7QhWVZ"
+1702264539938	Marionette	INFO	Marionette enabled
+1702264541272	Marionette	INFO	Listening on port 53220
+Read port: 53220
+WebDriver BiDi listening on ws://127.0.0.1:53211
+1702264541619	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.sys.mjs: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 762))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.sys.mjs", 416))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofile7QhWVZ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53211/devtools/browser/3659a41d-6c83-47e9-9a9f-7d2424750115
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+1702264580830	geckodriver	INFO	Listening on 127.0.0.1:53269
+1702264581028	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilePl6X2C"
+1702264586413	Marionette	INFO	Marionette enabled
+1702264588569	Marionette	INFO	Listening on port 53295
+Read port: 53295
+WebDriver BiDi listening on ws://127.0.0.1:53270
+1702264589633	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilePl6X2C/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53270/devtools/browser/654cac66-43e7-4771-8d69-44a63e3e2f00
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+1702264618566	Marionette	INFO	Stopped listening on port 53295
+1702264644729	Marionette	INFO	Stopped listening on port 52709
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1702264646433	Marionette	INFO	Stopped listening on port 52909
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1702264648373	Marionette	INFO	Stopped listening on port 52976
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+!!! error running onStopped callback: TypeError: callback is not a function
+1702264652240	Marionette	INFO	Stopped listening on port 53153
+1702264653745	Marionette	INFO	Stopped listening on port 53220
+1702264669198	geckodriver	INFO	Listening on 127.0.0.1:53389
+1702264669406	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileWhmSw5"
+1702264671454	Marionette	INFO	Marionette enabled
+1702264671895	Marionette	INFO	Listening on port 53403
+Read port: 53403
+WebDriver BiDi listening on ws://127.0.0.1:53390
+1702264672327	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileWhmSw5/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53390/devtools/browser/d442e2c9-4859-4c5c-bba6-44c65937000d
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+1702264705372	geckodriver	INFO	Listening on 127.0.0.1:53477
+1702264706467	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilehlgPxp"
+1702264715565	Marionette	INFO	Marionette enabled
+Exiting due to channel error.
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+1702264759390	geckodriver	INFO	Listening on 127.0.0.1:53495
+1702264759760	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileQZUmQX"
+1702264762981	Marionette	INFO	Marionette enabled
+1702264764040	Marionette	INFO	Listening on port 53510
+Read port: 53510
+WebDriver BiDi listening on ws://127.0.0.1:53496
+1702264764494	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileQZUmQX/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53496/devtools/browser/5da9f0ce-8b9a-4a1b-867d-0f87187b196b
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+1702264781727	geckodriver	INFO	Listening on 127.0.0.1:53565
+1702264782089	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileBY4mRu"
+1702264782993	Marionette	INFO	Marionette enabled
+1702264783383	Marionette	INFO	Listening on port 53573
+Read port: 53573
+WebDriver BiDi listening on ws://127.0.0.1:53566
+1702264784189	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileBY4mRu/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53566/devtools/browser/079f5e08-51ba-443e-b7d8-25c5ab6adde3
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+1702264802252	geckodriver	INFO	Listening on 127.0.0.1:53630
+1702264802727	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileJ7X4s9"
+1702264806444	Marionette	INFO	Marionette enabled
+1702264806901	Marionette	INFO	Listening on port 53640
+Read port: 53640
+WebDriver BiDi listening on ws://127.0.0.1:53631
+Read port: 53640
+1702264809216	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileJ7X4s9/search.json.mozlz4", (void 0)))
+1702264813392	Marionette	INFO	Stopped listening on port 53510
+DevTools listening on ws://127.0.0.1:53631/devtools/browser/338d80ef-9365-46ae-9497-61b8be4bc427
+console.error: Region.sys.mjs: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 764))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 416))
+1702264815386	Marionette	INFO	Stopped listening on port 53573
+JavaScript error: chrome://remote/content/marionette/cert.sys.mjs, line 51: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+!!! error running onStopped callback: TypeError: callback is not a function
+1702264816294	RemoteAgent	ERROR	unable to stop listener: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: chrome://remote/content/marionette/cert.sys.mjs :: allowAllCerts.disable :: line 51"  data: no] Stack trace: allowAllCerts.disable()@sys.mjs:51
+destroy()@sys.mjs:201
+deleteSession()@sys.mjs:142
+stop()@sys.mjs:229
+1702264816887	Marionette	INFO	Stopped listening on port 53640
+console.error: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 230))
+console.error: (new Error("IndexedDB: main/sites-classification list() IndexedDB:  execute() The application is shutting down", "resource://services-settings/IDBHelpers.jsm", 18))
+JavaScript error: resource://gre/modules/ExtensionSettingsStore.jsm, line 122: Error: The ExtensionSettingsStore was accessed before the initialize promise resolved.
+console.log: "RemoteSettingsWorker error: AbortError: IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort."
+console.error: (new RemoteSettingsWorkerError("AbortError: IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort.", "resource://services-settings/RemoteSettingsWorker.jsm", 48))
+console.error: (new AbortError("IndexedDB: main/hijack-blocklists list() IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort.", "resource://services-settings/IDBHelpers.jsm", 18))
+console.error: (new AbortError("IndexedDB: main/search-telemetry-v2 list() IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort.", "resource://services-settings/IDBHelpers.jsm", 18))
+console.error: (new AbortError("IndexedDB: main/search-config list() IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort.", "resource://services-settings/IDBHelpers.jsm", 18))
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.jsm:718:15
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:462:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.jsm:19:28
+promiseArchivePing@resource://gre/modules/TelemetryArchive.jsm:103:5
+promiseArchivePing@resource://gre/modules/TelemetryArchive.jsm:63:33
+_submitPingLogic@resource://gre/modules/TelemetryControllerParent.jsm:540:48
+send@resource://gre/modules/TelemetryControllerParent.jsm:628:24
+submitExternalPing@resource://gre/modules/TelemetryControllerParent.jsm:182:17
+sendPing@resource://gre/modules/EventPing.jsm:51:30
+_submitPing@resource://gre/modules/EventPing.jsm:229:12
+shutdown@resource://gre/modules/EventPing.jsm:112:10
+_cleanupOnShutdown@resource://gre/modules/TelemetryControllerParent.jsm:940:31
+shutdown/<@resource://gre/modules/TelemetryControllerParent.jsm:1010:24
+observe@resource://gre/modules/AsyncShutdown.jsm:572:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.jsm:718:15
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:462:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.jsm:19:28
+promiseArchivePing@resource://gre/modules/TelemetryArchive.jsm:103:5
+promiseArchivePing@resource://gre/modules/TelemetryArchive.jsm:63:33
+_submitPingLogic@resource://gre/modules/TelemetryControllerParent.jsm:540:48
+send@resource://gre/modules/TelemetryControllerParent.jsm:628:24
+submitExternalPing@resource://gre/modules/TelemetryControllerParent.jsm:182:17
+saveShutdownPings@resource://gre/modules/TelemetrySession.jsm:982:34
+shutdownChromeProcess/cleanup/<@resource://gre/modules/TelemetrySession.jsm:1232:20
+cleanup@resource://gre/modules/TelemetrySession.jsm:1239:9
+shutdownChromeProcess@resource://gre/modules/TelemetrySession.jsm:1256:14
+shutdown@resource://gre/modules/TelemetrySession.jsm:247:17
+_cleanupOnShutdown@resource://gre/modules/TelemetryControllerParent.jsm:959:35
+observe@resource://gre/modules/AsyncShutdown.jsm:572:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.jsm:718:15
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:462:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.jsm:19:28
+promiseArchivePing@resource://gre/modules/TelemetryArchive.jsm:103:5
+promiseArchivePing@resource://gre/modules/TelemetryArchive.jsm:63:33
+_submitPingLogic@resource://gre/modules/TelemetryControllerParent.jsm:540:48
+send@resource://gre/modules/TelemetryControllerParent.jsm:628:24
+submitExternalPing@resource://gre/modules/TelemetryControllerParent.jsm:182:17
+saveShutdownPings@resource://gre/modules/TelemetrySession.jsm:1014:36
+shutdownChromeProcess/cleanup/<@resource://gre/modules/TelemetrySession.jsm:1232:20
+cleanup@resource://gre/modules/TelemetrySession.jsm:1239:9
+shutdownChromeProcess@resource://gre/modules/TelemetrySession.jsm:1256:14
+shutdown@resource://gre/modules/TelemetrySession.jsm:247:17
+_cleanupOnShutdown@resource://gre/modules/TelemetryControllerParent.jsm:959:35
+observe@resource://gre/modules/AsyncShutdown.jsm:572:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  TelemetryController: shutting down
+          Phase: profile-before-change-telemetry
+          State: Error getting state: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange" at addBlocker@resource://gre/modules/AsyncShutdown.jsm:718:15
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:462:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.jsm:19:28
+getShutdownState@resource://gre/modules/TelemetrySend.jsm:1692:7
+getShutdownState@resource://gre/modules/TelemetrySend.jsm:374:30
+_getState@resource://gre/modules/TelemetryControllerParent.jsm:1058:38
+setupTelemetry/<@resource://gre/modules/TelemetryControllerParent.jsm:917:18
+safeGetState@resource://gre/modules/AsyncShutdown.jsm:254:17
+Barrier/_internalAddBlocker/promise<@resource://gre/modules/AsyncShutdown.jsm:773:20
+observe@resource://gre/modules/AsyncShutdown.jsm:572:16
+
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.jsm:718:15
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.jsm:462:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.jsm:19:28
+removeAbortedSessionPing@resource://gre/modules/TelemetryControllerParent.jsm:721:5
+removeAbortedSessionPing@resource://gre/modules/TelemetryControllerParent.jsm:249:17
+shutdownChromeProcess/cleanup/<@resource://gre/modules/TelemetrySession.jsm:1235:42
+observe@resource://gre/modules/AsyncShutdown.jsm:572:16
+
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/CrashManager.jsm, line 907: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+1702264836328	geckodriver	INFO	Listening on 127.0.0.1:53653
+1702264836465	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileVJ9DA7"
+1702264838096	Marionette	INFO	Marionette enabled
+1702264838262	Marionette	INFO	Listening on port 53661
+Read port: 53661
+WebDriver BiDi listening on ws://127.0.0.1:53654
+1702264838523	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileVJ9DA7/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53654/devtools/browser/cc054212-de93-43ad-b148-4c88d933ed66
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+1702264856717	geckodriver	INFO	Listening on 127.0.0.1:53714
+1702264857099	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilekslbeV"
+1702264857790	Marionette	INFO	Marionette enabled
+1702264858055	Marionette	INFO	Listening on port 53722
+Read port: 53722
+WebDriver BiDi listening on ws://127.0.0.1:53715
+1702264858455	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilekslbeV/search.json.mozlz4", (void 0)))
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1702264898452	geckodriver	INFO	Listening on 127.0.0.1:53738
+1702264898901	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileKqGxkF"
+1702264901351	Marionette	INFO	Marionette enabled
+1702264901660	Marionette	INFO	Listening on port 53748
+Read port: 53748
+WebDriver BiDi listening on ws://127.0.0.1:53739
+1702264902034	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileKqGxkF/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53739/devtools/browser/ebe49ac0-dcc2-457b-9c2e-d509f6947b04
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+1702264920018	geckodriver	INFO	Listening on 127.0.0.1:53805
+1702264920370	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileTZhUrd"
+1702264922661	Marionette	INFO	Marionette enabled
+1702264923622	Marionette	INFO	Listening on port 53813
+Read port: 53813
+WebDriver BiDi listening on ws://127.0.0.1:53806
+1702264924273	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1702264927816	Marionette	INFO	Stopped listening on port 53748
+JavaScript error: chrome://remote/content/marionette/cert.sys.mjs, line 51: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+!!! error running onStopped callback: TypeError: callback is not a function
+1702264928516	RemoteAgent	ERROR	unable to stop listener: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: chrome://remote/content/marionette/cert.sys.mjs :: allowAllCerts.disable :: line 51"  data: no] Stack trace: allowAllCerts.disable()@sys.mjs:51
+destroy()@sys.mjs:201
+deleteSession()@sys.mjs:142
+stop()@sys.mjs:229
+Exiting due to channel error.
+1702264951350	geckodriver	INFO	Listening on 127.0.0.1:53824
+1702264951711	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileaD3aaD"
+1702264953321	Marionette	INFO	Marionette enabled
+1702264953503	Marionette	INFO	Listening on port 53834
+Read port: 53834
+WebDriver BiDi listening on ws://127.0.0.1:53825
+1702264953771	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileaD3aaD/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53825/devtools/browser/bab2494a-6a26-49a7-ac9c-b25776ee0987
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+1702264974073	geckodriver	INFO	Listening on 127.0.0.1:53894
+1702264974429	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilerDu6zd"
+1702264975452	Marionette	INFO	Marionette enabled
+1702264975831	Marionette	INFO	Listening on port 53902
+Read port: 53902
+WebDriver BiDi listening on ws://127.0.0.1:53895
+1702264976441	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilerDu6zd/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53895/devtools/browser/3a1a46ee-48dd-4425-a269-d8c5bc479836
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1702265003875	geckodriver	INFO	Listening on 127.0.0.1:53941
+1702265003984	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilen5LOGp"
+1702265006301	Marionette	INFO	Marionette enabled
+1702265006609	Marionette	INFO	Listening on port 53950
+Read port: 53950
+WebDriver BiDi listening on ws://127.0.0.1:53942
+1702265006899	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilen5LOGp/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53942/devtools/browser/00d213a1-e6ea-49b0-b91e-e103524ca92d
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+1702265027088	geckodriver	INFO	Listening on 127.0.0.1:54006
+1702265027421	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilexcelNr"
+1702265028349	Marionette	INFO	Marionette enabled
+1702265028942	Marionette	INFO	Listening on port 54014
+Read port: 54014
+WebDriver BiDi listening on ws://127.0.0.1:54007
+Read port: 54014
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+1702265057738	geckodriver	INFO	Listening on 127.0.0.1:54025
+1702265057823	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilepUDeVs"
+1702265059360	Marionette	INFO	Marionette enabled
+1702265059558	Marionette	INFO	Listening on port 54034
+Read port: 54034
+WebDriver BiDi listening on ws://127.0.0.1:54026
+1702265059883	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofilepUDeVs/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54026/devtools/browser/91c103ce-c4fb-4abe-a9ab-4f4eaf47bcbb
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+1702265079650	geckodriver	INFO	Listening on 127.0.0.1:54087
+1702265080000	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileyGfHmG"
+1702265080887	Marionette	INFO	Marionette enabled
+1702265081177	Marionette	INFO	Listening on port 54095
+Read port: 54095
+WebDriver BiDi listening on ws://127.0.0.1:54088
+1702265081485	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileyGfHmG/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54088/devtools/browser/9334a6a2-2f4a-4760-9723-f8881f759c86
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+JavaScript error: http://127.0.0.1:3000/static/home.js, line 122: TypeError: input is null
+1702265099971	geckodriver	INFO	Listening on 127.0.0.1:54156
+1702265100340	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileR6Hz53"
+1702265101853	Marionette	INFO	Marionette enabled
+1702265103628	Marionette	INFO	Listening on port 54164
+Read port: 54164
+WebDriver BiDi listening on ws://127.0.0.1:54157
+1702265104470	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m4/x3ltxdpx3ln7y3frpd7td3c80000gn/T/rust_mozprofileR6Hz53/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54157/devtools/browser/1ee9c9ee-2dec-4dc9-81f1-531e9fc8c8e5
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://127.0.0.1:3000."
+1702265126223	Marionette	INFO	Stopped listening on port 54164
+[GFX1-]: Unrecognized feature ACCELERATED_CANVAS2D
+[GFX1-]: Unrecognized feature ACCELERATED_CANVAS2D

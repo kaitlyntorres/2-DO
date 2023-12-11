@@ -331,12 +331,12 @@ def test_s3_incomplete_search_tasks(client, app):
     # Test Description Search 
     driver.refresh()
     time.sleep(3)
-    search_column = "description"
+    search_column = "Description"
     search_text = "desc2"
 
     column_select = driver.find_element(By.NAME, "columnSelect")
     column_select.send_keys(search_column)
-    time.sleep(1)
+    time.sleep(3)
     task_search = driver.find_element(By.ID, "taskSearch1")
     task_search.send_keys(search_text)
 
@@ -351,7 +351,7 @@ def test_s3_incomplete_search_tasks(client, app):
     # Test Tag Search 
     driver.refresh()
     time.sleep(3)
-    search_column = "tag"
+    search_column = "Tag"
     search_text = "tag3"
 
     column_select = driver.find_element(By.NAME, "columnSelect")
@@ -371,7 +371,7 @@ def test_s3_incomplete_search_tasks(client, app):
     # Test Priority Search 
     driver.refresh()
     time.sleep(3)
-    search_column = "priority"
+    search_column = "Priority"
     search_text = "High"
 
     column_select = driver.find_element(By.NAME, "columnSelect")
@@ -448,7 +448,7 @@ def test_s3_complete_search_tasks(client, app):
     # Test Description Search 
     driver.refresh()
     time.sleep(3)
-    search_column = "description"
+    search_column = "Description"
     search_text = "desc2complete"
 
     column_select = driver.find_element(By.NAME, "columnSelect")
@@ -468,7 +468,7 @@ def test_s3_complete_search_tasks(client, app):
     # Test Tag Search 
     driver.refresh()
     time.sleep(3)
-    search_column = "tag"
+    search_column = "Tag"
     search_text = "tag3complete"
 
     column_select = driver.find_element(By.NAME, "columnSelect")
@@ -488,7 +488,7 @@ def test_s3_complete_search_tasks(client, app):
     # Test Priority Search 
     driver.refresh()
     time.sleep(3)
-    search_column = "priority"
+    search_column = "Priority"
     search_text = "High"
 
     column_select = driver.find_element(By.NAME, "columnSelect")
