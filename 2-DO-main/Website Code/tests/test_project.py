@@ -13,12 +13,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options
 import time
+import os
 
 """ *** TEST CASES *** """
 """ *** Sprint 1 & 2 *** """
 
 # L-01 Ensure that a user can successfully create an account
-def test_sign_up(client, app):
+def test_s12_sign_up(client, app):
 
     # Create a user
     response = client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName":"TestLastName", "password1":"testpassword", "password2":"testpassword"})
@@ -33,7 +34,7 @@ def test_sign_up(client, app):
         assert check_password_hash(User.query.first().password, "testpassword") == True
 
 # L-02 Ensure that a user can successfully login to their previously created account
-def test_valid_login(client):
+def test_s12_valid_login(client):
     response = client.post("/sign-up", data={"email": "test@test.com", "first_name": "TestFirstName", "last_name":"TestLastName", "password":"testpassword"})
 
     client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
@@ -44,7 +45,7 @@ def test_valid_login(client):
     assert response.status_code == 302 
 
 # L-03 Ensure that a user can’t log into their account with an incorrect password
-def test_incorrect_password(client, app):
+def test_s12_incorrect_password(client, app):
 
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName":"TestLastName", "password1":"testpassword", "password2":"testpassword"})
@@ -57,7 +58,7 @@ def test_incorrect_password(client, app):
         assert current_user != User.query.first()
 
 # L-04 Non-existent user
-def test_invalid_login(client):
+def test_s12_invalid_login(client):
     
     response = client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
 
@@ -65,7 +66,7 @@ def test_invalid_login(client):
     assert response.status_code == 200 
 
 # T-01 Ensure that user can successfully add a task
-def test_task_creation(client, app):
+def test_s12_task_creation(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName":"TestLastName", "password1":"testpassword", "password2":"testpassword"})
 
@@ -88,7 +89,7 @@ def test_task_creation(client, app):
         assert Task.query.first().status == 0
 
 # T-02 Ensure that the user can view a list of tasks
-def test_viewing_tasks(client, app):
+def test_s12_viewing_tasks(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
 
@@ -114,7 +115,7 @@ def test_viewing_tasks(client, app):
 
 
 # T-04 Ensure that a user can delete a task
-def test_task_deletion(client, app):
+def test_s12_task_deletion(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
 
@@ -146,7 +147,7 @@ def test_task_deletion(client, app):
     assert updated_task_count == initial_task_count - 1
 
 # T-05 Ensure that a user can edit a task
-def test_editform(client, app):
+def test_s12_editform(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
 
@@ -174,7 +175,7 @@ def test_editform(client, app):
 
 
 # T-06 Ensure that a user can sort tasks 
-def test_sorting(client, app):
+def test_s12_sorting(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
 
@@ -277,7 +278,7 @@ def test_sorting(client, app):
 """ *** Sprint 3 Test Cases *** """
 
 # T-07 Ensure that a user can filter by column values in the incomplete table
-def test_incomplete_search_tasks(client, app):
+def test_s3_incomplete_search_tasks(client, app):
     # SHOULD HAVE THIS TEST INPUT A TASK AND THEN CHECK INSTEAD OF RELYING 
     # UPON HAVING THE TESTS ALREADY EXISTING IN THE DATABASE
 
@@ -394,7 +395,7 @@ def test_incomplete_search_tasks(client, app):
 # NEED TO CHANGE SO THAT IT SELECTS THE RIGHT "columnSelect" 
 # CURRENT JUST GRABS THE FIRST "columnSelect" AND FINDS THE RIGHT DATA SINCE THE 
 # TABLE WASNT FILTERED OUT, HENCE CONTAINING ALL THE DATA
-def test_complete_search_tasks(client, app):
+def test_s3_complete_search_tasks(client, app):
     # SHOULD HAVE THIS TEST INPUT A TASK AND THEN CHECK INSTEAD OF RELYING 
     # UPON HAVING THE TESTS ALREADY EXISTING IN THE DATABASE
 
@@ -508,7 +509,7 @@ def test_complete_search_tasks(client, app):
     driver.quit() 
 
 # T-08 Ensure that a user can mark tasks as complete/incomplete
-def test_complete_task(client, app):
+def test_s3_complete_task(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
 
@@ -537,7 +538,7 @@ def test_complete_task(client, app):
 """*** Sprint 4 Test Cases ***"""
 
 # C-01 Test that a user can view all completed tasks in a separate table
-def test_completed_tasks_views(client, app):
+def test_s4_completed_tasks_views(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
 
@@ -563,7 +564,7 @@ def test_completed_tasks_views(client, app):
         assert task.status == True # Check that the status changed to True from the False default
 
 # R-01 Test that the user can set a reminder time
-def test_set_reminder_time(client, app):
+def test_s4_set_reminder_time(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
 
@@ -586,7 +587,7 @@ def test_set_reminder_time(client, app):
         assert task.reminder_time == "2003-10-11 13:15"
 
 # R-02 Test that the user can remove the reminder time from a task
-def test_remove_reminder_time(client, app):
+def test_s4_remove_reminder_time(client, app):
     # Create a user
     client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
 
@@ -610,7 +611,7 @@ def test_remove_reminder_time(client, app):
         assert task.reminder_time == ""
 
 # R-03 Test that the user will receive a reminder notification
-def test_reminder_notification(client, app):
+def test_s4_reminder_notification(client, app):
     # SHOULD HAVE THIS TEST INPUT A TASK AND THEN CHECK INSTEAD OF RELYING 
     # UPON HAVING THE TESTS ALREADY EXISTING IN THE DATABASE
 
@@ -729,6 +730,24 @@ def test_reminder_notification(client, app):
 
     # Quit the WebDriver
     driver.quit()
+
+""" *** Sprint 5 Test Cases """
+
+def test_s5_export(client, app):
+    # Create a user
+    client.post("/sign-up", data={"email": "test@test.com", "firstName": "TestFirstName", "lastName": "TestLastName", "password1": "testpassword", "password2": "testpassword"})
+
+    # Login the user
+    client.post("/login", data={"email": "test@test.com", "password": "testpassword"})
+
+    # Make a request to the to_csv endpoint
+    response = client.get('/to_csv/')
+    assert response.status_code == 200
+
+    # Check if the CSV files are created
+    assert (os.path.exists('alltasks.csv'))==True
+    assert (os.path.exists('incompletetasks.csv'))==True
+    assert (os.path.exists('completetasks.csv')) ==True
 
 """ *** TESTING ACCESSING HTML VIEWS *** """
 # Test the home page ("/") route
