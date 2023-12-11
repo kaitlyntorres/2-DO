@@ -46,4 +46,4 @@ Users could categorize tasks and sort based on tags = <b>COMPLETE</b> <br />
 Users could export tasks to CSV  = <b>COMPLETE</b><br />
 
 # Status
-This Project finnished all stages of Production
+This Project finished all stages of Production
