@@ -13,7 +13,7 @@ Users can also filter and sort tasks by day and time as well as mark tasks as co
 Run main.py and click on the localhost
 
 # Guide
-Upon launching the app, users will be able to login if they have previosuly created an account or signup if they are a new user. Once the user is auththenticated, they will be able to see all the tasks they
+Upon launching the app, users will be able to login if they have previosuly created an account or signup if they are a new user.\n Once the user is auththenticated, they will be able to  see all the tasks they
 have added, if they added any at all. Below this is a form that users fill out to add a task. The form consist of title, description, date and time, tag, priority, and status. Once added, the task will automatically be placed
 with the other tasks to view. Users will have the ability to delete any tasks that no longer need, as well as edit any part of the tasks created. Users can also sort by date and time, so the tasks that need to be completed the soonest will appear on the top.
 
