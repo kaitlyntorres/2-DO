@@ -19,10 +19,10 @@ function sortTable(num,x) {
             if (num == 0) {
                 var xValue = Number(x.innerHTML);
                 var yValue = Number(y.innerHTML);
-            } else if (num == 1) {
+            /* } else if (num == 1) {
                 // Compare date strings directly
                 xValue = xCell.innerHTML;
-                yValue = yCell.innerHTML;
+                yValue = yCell.innerHTML; */
             } else if (num == 5) {
                 var xValue = getPriorityValue(x.innerHTML);
                 var yValue = getPriorityValue(y.innerHTML);
