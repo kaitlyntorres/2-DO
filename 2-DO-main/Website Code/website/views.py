@@ -1,3 +1,43 @@
+"""
+Views Blueprint for Flask Application
+
+This module defines routes and functions related to views using the Flask Blueprint 'views'.
+
+Modules:
+    - Flask: Micro web framework for Python.
+    - Blueprint: Organize a group of related views and other code.
+    - render_template: Render HTML templates.
+    - request: Handle incoming HTTP requests.
+    - flash: Provide feedback messages to the user.
+    - redirect: Redirect to a different endpoint.
+    - url_for: Generate URLs for Flask views.
+    - jsonify: Return JSON responses.
+    - send_file: Send files in HTTP responses.
+    - login_required: Require authentication for specific routes.
+    - current_user: Get the current user object.
+    - datetime: Date and time manipulation.
+    - Task: Database model for tasks.
+    - db: SQLAlchemy object for database interaction.
+    - json: JSON data handling.
+    - sys: System-specific parameters and functions.
+    - csv: CSV file handling.
+    - os: Operating system module.
+    - pandas: Data manipulation and analysis library.
+
+Functions:
+    - home: Route for the home page, displays tasks and allows task creation.
+    - delete_task: Route for deleting a task.
+    - edit_task: Route for editing a task.
+    - editform: Route for the edit task form.
+    - complete_task: Route for marking a task as complete or incomplete.
+    - get_task: Route for retrieving task data.
+    - help: Route for the help page.
+    - to_csv: Route for exporting tasks to CSV and Excel files.
+
+Usage:
+    Define the 'views' Blueprint and use it to define view-related routes and functions.
+"""
+
 from flask import Blueprint, render_template, request, flash,redirect, url_for, jsonify, send_file
 from flask_login import login_required, current_user
 import datetime
@@ -18,6 +58,16 @@ views = Blueprint('views', __name__)
 @views.route('/', methods = ['GET', 'POST'])
 @login_required
 def home():
+    """
+    Route for the home page. Displays tasks and allows task creation.
+
+    GET: Render the home page with tasks.
+    POST: Create a new task and redirect to the home page.
+
+    Returns:
+        GET: Rendered home page.
+        POST: Redirect to the home page.
+    """
     if request.method == "POST":
         title = request.form.get('title')
         description = request.form.get('description')
@@ -46,6 +96,15 @@ def home():
 @views.route('/delete_task/<t>')
 @login_required
 def delete_task(t):
+    """
+    Route for deleting a task.
+
+    Args:
+        t (str): Task ID.
+
+    Returns:
+        Redirect to the home page.
+    """
     task = Task.query.filter_by(id=t).first()
     if task:
         msg_text = '%s successfully removed' % str(task)
@@ -57,12 +116,31 @@ def delete_task(t):
 @views.route('/edit_task/<t>')
 @login_required
 def edit_task(t):
+    """
+    Route for editing a task.
+
+    Args:
+        t (str): Task ID.
+
+    Returns:
+        Render the edit task form.
+    """
     task = Task.query.filter_by(id=t).first()
     return render_template('editform.html',task=task, user=current_user)
 
 @views.route('/editform', methods = ['GET', 'POST'])
 @login_required
 def editform():
+    """
+    Route for the edit task form.
+
+    GET: Render the edit task form.
+    POST: Process the form data and redirect to the home page.
+
+    Returns:
+        GET: Rendered edit task form.
+        POST: Redirect to the home page.
+    """
     taskid=request.args.get('taskid',None)
 
     task = Task.query.filter_by(id=taskid).first()
@@ -89,6 +167,14 @@ def editform():
 @views.route('/complete_task/', methods=["POST"])
 @login_required
 def complete_task():
+    """
+    Route for marking a task as complete or incomplete.
+
+    POST: Toggle the status of the task (complementing the boolean value) and commit the changes to the database.
+
+    Returns:
+        Rendered home page.
+    """
     # Grabs the JSON data from home.html
     output = request.get_json()
     # Retrieves task id
@@ -107,6 +193,15 @@ def complete_task():
 
 @views.route('/get_task/<task_id>')
 def get_task(task_id):
+    """
+    Route for retrieving task data.
+
+    Args:
+        task_id (str): Task ID.
+
+    Returns:
+        JSON response containing task data.
+    """
     # Retrieve the task data based on task_id
     task = Task.query.get(task_id)
     
@@ -127,6 +222,12 @@ def get_task(task_id):
 
 @views.route('/help')
 def help():
+    """
+    Route for the help page.
+
+    Returns:
+        Rendered help page.
+    """
     # Add any necessary data to pass to the help page here
     return render_template('help.html', user=current_user)
 
@@ -134,6 +235,12 @@ def help():
 @views.route('/to_csv/')
 @login_required
 def to_csv():
+    """
+    Route for exporting tasks to CSV and Excel files.
+
+    Returns:
+        File download response.
+    """
     with open('alltasks.csv','w',newline='') as csv_file:
         write_csv=csv.writer(csv_file,delimiter=',')
         #creates header row
@@ -188,12 +295,3 @@ def to_csv():
                      mimetype='text/csv',
                      download_name=filename,
                      as_attachment=True)
-
-    
-
-    
-
-
-
-
-

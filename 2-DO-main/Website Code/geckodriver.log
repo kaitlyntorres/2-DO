@@ -575,3 +575,7 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: http://1
 1702265126223	Marionette	INFO	Stopped listening on port 54164
 [GFX1-]: Unrecognized feature ACCELERATED_CANVAS2D
 [GFX1-]: Unrecognized feature ACCELERATED_CANVAS2D
+1702267119363	Marionette	INFO	Stopped listening on port 52644
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1702267123829	Marionette	INFO	Stopped listening on port 54034
+1702267125133	Marionette	INFO	Stopped listening on port 54095

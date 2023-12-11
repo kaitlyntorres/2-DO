@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-{% block title %}Help{% endblock %}
-{% block content %}
+{% extends "base.html" %} {% block title %}Help{% endblock %} {% block content %}
 
 <h1>User Help</h1>
 <p>Welcome to the Help Page! This page provides guidance on using the features of our task managing application.</p>
@@ -9,13 +7,14 @@
 <p>You can add new tasks to your list. Here's how to do it:</p>
 <ol>
     <li>Fill out the task details in the form provided:</li>
-        <ol>
-            <li>Title: The title of your task to complete.</li>
-            <li>Description: Give more context to your task by adding details and notes related to it.</li>
-            <li>Date and Time: This is the date and time that your task needs to be comeplete by.</li>
-            <li>Tag: Tags help you categorize your tasks to an overarching responsibility that you have.</li>
-            <li>Priority: This is how important you task is that you need to complete. It can have a "Low", "Medium", and "High" priority.</li>
-        </ol>
+    <ol>
+        <li>Title: The title of your task to complete.</li>
+        <li>Description: Give more context to your task by adding details and notes related to it.</li>
+        <li>Date and Time: This is the date and time that your task needs to be comeplete by.</li>
+        <li>Tag: Tags help you categorize your tasks to an overarching responsibility that you have.</li>
+        <li>Priority: This is how important you task is that you need to complete. It can have a "Low", "Medium", and
+            "High" priority.</li>
+    </ol>
     <li>Select the "Priority" level from the dropdown list (Low, Medium, High).</li>
     <li>Click the "Add Task" button to create a new task with the specified details.</li>
 </ol>
@@ -52,25 +51,29 @@
 </ol>
 
 <h2>6. Exporting Tasks</h2>
-<p>Users are able to export their tasks into an excel document to take their tasks outside of the application. This allows them to share their tasks with other users in a widely used format. Here is how to export your tasks:</p>
+<p>Users are able to export their tasks into an excel document to take their tasks outside of the application. This
+    allows them to share their tasks with other users in a widely used format. Here is how to export your tasks:</p>
 <ol>
     <li>Locate the "Export to Excel" button below your task tables and click.</li>
     <li>Save your downloded .xslx file to a desired location.</li>
     <li>Open and view the file to see the exported tasks.</li>
 </ol>
-<p>The tasks are split up into three separate sheets.One with all the tasks in a list, one with incomeplete tasks, and one with complete tasks. All tasks have their appropriate data with them.</p>
+<p>The tasks are split up into three separate sheets.One with all the tasks in a list, one with incomeplete tasks, and
+    one with complete tasks. All tasks have their appropriate data with them.</p>
 
 <h2>Setting a Task Reminder</h2>
-<p>Users are able to set a desktop notification to get notified at a user specified time to remind them of a give task. Here is how to use the reminders:</p>
+<p>Users are able to set a desktop notification to get notified at a user specified time to remind them of a give task.
+    Here is how to use the reminders:</p>
 <ol>
-    <li>When creating/editing a task, set a reminder time. This time must be past the current time for a reminder to be properly set.</li>
+    <li>When creating/editing a task, set a reminder time. This time must be past the current time for a reminder to be
+        properly set.</li>
     <li>Submit the new task information.</li>
     <li>Click the bell icon next to the remidner time.</li>
     <li>A desktop notifcation will appear, showing the title and description of the task.</li>
 </ol>
 
 <button id="backButton" class="btn btn-primary" onclick="goBack()">Back</button>
-<br>
+<br />
 
 <script>
     function goBack() {

@@ -3,7 +3,7 @@
 <div id="notification-container"></div>
 <h1 align="center">Welcome {{ user.first_name }}, User ID: {{ user.id }}</h1>
 <h1 align="center">Tasks</h1>
-<hr>
+<hr />
 <!-- SEARCH BAR -->
 <div class="search-container">
   <label for="columnSelect">Search in Column:</label>
@@ -12,13 +12,14 @@
     <option value="description">Description</option>
     <option value="tag">Tag</option>
     <option value="priority">Priority</option>
-    <!--<option value="status">Status</option>--> <!-- Will fix this for later-->
+    <!--<option value="status">Status</option>-->
+    <!-- Will fix this for later-->
   </select>
   <input type="text" id="taskSearch1" placeholder="Search for tasks..."
-    onkeyup="searchTasks('task-table1', 'taskSearch1')">
+    onkeyup="searchTasks('task-table1', 'taskSearch1')" />
 </div>
 <!--<button id="helpButton" class="btn btn-primary" onclick="showHelpPage()">Help</button>-->
-<br>
+<br />
 <ul class="list-group list-group-flush" id="tasks">
   <div id="incomplete-tasks">
     <h2>Incomplete Tasks</h2>
@@ -38,8 +39,7 @@
         </tr>
       </thead>
       <tbody>
-        {% for task in user.tasks %}
-        {% if task.status == False %}
+        {% for task in user.tasks %} {% if task.status == False %}
         <tr>
           <td>{{ task.id }}</td>
           <td>{{ task.due_date }}</td>
@@ -49,7 +49,7 @@
           <td>{{ task.priority }}</td>
           <td>
             <input type="checkbox" id="{{ task.id }}" class="complete" name="data_{{ task.status }}"
-              value="{{ task.status }}" onclick="checkComplete('{{ task.id }}')" onchange="moveToCompleted(this)">
+              value="{{ task.status }}" onclick="checkComplete('{{ task.id }}')" onchange="moveToCompleted(this)" />
           </td>
           <td>{{ task.reminder_time }}</td>
           <!--         <td><a href="{{ url_for('views.delete_task', t=task.id) }}"
@@ -75,12 +75,11 @@
             </a>
           </td>
         </tr>
-        {%endif%}
-        {% endfor %}
+        {%endif%} {% endfor %}
       </tbody>
     </table>
   </div>
-  <br>
+  <br />
   <!-- SEARCH BAR -->
   <div class="search-container">
     <label for="columnSelect">Search in Column:</label>
@@ -89,10 +88,11 @@
       <option value="description">Description</option>
       <option value="tag">Tag</option>
       <option value="priority">Priority</option>
-      <!--<option value="status">Status</option>--> <!-- Will fix this for later-->
+      <!--<option value="status">Status</option>-->
+      <!-- Will fix this for later-->
     </select>
     <input type="text" id="taskSearch2" placeholder="Search for tasks..."
-      onkeyup="searchTasks('task-table2', 'taskSearch2')">
+      onkeyup="searchTasks('task-table2', 'taskSearch2')" />
   </div>
   <!--<button id="helpButton" class="btn btn-primary" onclick="showHelpPage()">Help</button>-->
   <div id="complete-tasks">
@@ -112,8 +112,7 @@
         </tr>
       </thead>
       <tbody>
-        {% for task in user.tasks %}
-        {%if task.status == True%}
+        {% for task in user.tasks %} {%if task.status == True%}
         <tr>
           <td>{{ task.id }}</td>
           <td>{{ task.due_date }}</td>
@@ -124,7 +123,7 @@
           <td>
             <input type="checkbox" id="{{ task.id }}" class="complete" name="data_{{ task.status }}"
               value="{{ task.status }}" onclick="checkComplete('{{ task.id }}')" checked
-              onchange="moveToIncomplete(this)">
+              onchange="moveToIncomplete(this)" />
           </td>
           <td>{{ task.reminder_time }}</td>
           <td>
@@ -144,15 +143,15 @@
             </a>
           </td>
         </tr>
-        {%endif%}
-        {% endfor %}
+        {%endif%} {% endfor %}
       </tbody>
     </table>
   </div>
 </ul>
-<br><br>
+<br />
+<br />
 <a href="{{url_for('views.to_csv')}}">Export to Excel</a>
-<h3>Add Information About Your Task: </h3>
+<h3>Add Information About Your Task:</h3>
 <form method="POST">
   <h1>Task</h1>
   <div class="form-group">
@@ -166,7 +165,7 @@
   </div>
   <div class="form-group">
     <label for="date">Select a Due Date</label>
-    <input type="datetime-local" class="form-control" id="date" name="date">
+    <input type="datetime-local" class="form-control" id="date" name="date" />
   </div>
   <div class="form-group">
     <label for="tag">Tag</label>
@@ -182,51 +181,11 @@
   </div>
   <div class="form-group">
     <label for="reminder_time">Set a Reminder Time</label>
-    <input type="datetime-local" class="form-control" id="reminder_time" name="reminder_time">
+    <input type="datetime-local" class="form-control" id="reminder_time" name="reminder_time" />
   </div>
   <div>
     <button type="submit" class="btn btn-primary">Add Task</button>
   </div>
-  <br>
+  <br />
 </form>
-<!--
-   <script>
-     /* REFERENCED FROM W3SCHOOLS*/
-   
-     function sortTable(num,x) {
-     var table, rows, switching, i, x, y, shouldSwitch;
-     table = document.getElementById(x);
-     switching = true;
-     /* Make a loop that will continue until
-     no switching has been done: */
-     while (switching) {
-       // Start by saying: no switching is done:
-       switching = false;
-       rows = table.rows;
-       /* Loop through all table rows (except the
-       first, which contains table headers): */
-       for (i = 1; i < (rows.length - 1); i++) {
-         // Start by saying there should be no switching:
-         shouldSwitch = false;
-         /* Get the two elements you want to compare,
-         one from current row and one from the next: */
-         x = rows[i].getElementsByTagName("TD")[num];
-         y = rows[i + 1].getElementsByTagName("TD")[num];
-         // Check if the two rows should switch place:
-         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-           // If so, mark as a switch and break the loop:
-           shouldSwitch = true;
-           break;
-         }
-       }
-       if (shouldSwitch) {
-         /* If a switch has been marked, make the switch
-         and mark that a switch has been done: */
-         rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-         switching = true;
-       }
-     }
-   }
-   </script>-->
-<!-- THIS IS A TEMP CHANGE FOR SORTING -->
 {% endblock %}

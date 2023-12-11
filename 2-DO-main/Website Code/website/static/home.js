@@ -1,6 +1,12 @@
 // Store the current sorting direction for each column
 var sortDirections = Array(7).fill(1); // 1 for ascending, -1 for descending
 
+/**
+ * Sorts the table rows based on the specified column.
+ *
+ * @param {number} num - The column index for sorting.
+ * @param {string} x - The table element ID.
+ */
 function sortTable(num,x) {
     var table, rows, switching, i, x, y, shouldSwitch;
     table = document.getElementById(x);
@@ -58,14 +64,23 @@ function sortTable(num,x) {
     }
 }
 
+/**
+ * Retrieves the sortable value for the "Status" column.
+ *
+ * @param {HTMLElement} checkbox - The checkbox element.
+ * @returns {number} - 1 for complete (True), 0 for incomplete (False).
+ */
 function getStatusValue(checkbox) {
     // Custom sorting for "Status" column
     return checkbox.value === "True" ? 1 : 0; // 1 for complete (True), 0 for incomplete (False)
 }
 
-
-
-// Helper function to convert priority text to sortable value
+/**
+ * Retrieves the sortable value for the "Priority" column.
+ *
+ * @param {string} priority - The priority text.
+ * @returns {number} - 1 for "Low," 2 for "Medium," 3 for "High," and 0 for other cases.
+ */
 function getPriorityValue(priority) {
     switch (priority) {
         case "Low":
@@ -79,10 +94,11 @@ function getPriorityValue(priority) {
     }
 }
 
-
-
-
-//Checkbox is checked if task is complete. Bool value and task id get passed to Flask to update bool in db
+/**
+ * Updates the completion status of a task in the database.
+ *
+ * @param {string} t - The task ID.
+ */
 function checkComplete(t) {
     //grabs checkbox
     checkbox = document.getElementById(t)
@@ -100,22 +116,31 @@ function checkComplete(t) {
     }));
 }
 
+/**
+ * Redirects the user to the help page.
+ */
 function showHelpPage() {
     // Redirect the user to the help page URL
     window.location.href = "/help"; // Replace "/help" with your actual help page URL
 }
 
-
-
-
 var searchColumn = "title"; // Default search column
 
+/**
+ * Changes the search column for task filtering.
+ */
 function changeSearchColumn() {
     var columnSelect = document.getElementById("columnSelect");
     searchColumn = columnSelect.options[columnSelect.selectedIndex].value;
     searchTasks();
 }
 
+/**
+ * Filters tasks based on the selected column and search input.
+ *
+ * @param {string} tableId - The table element ID.
+ * @param {string} inputId - The input element ID for search.
+ */
 function searchTasks(tableId, inputId) {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById(inputId);
@@ -146,6 +171,12 @@ function searchTasks(tableId, inputId) {
     }
 }
 
+/**
+ * Displays a notification message with the specified content and category.
+ *
+ * @param {string} message - The notification message.
+ * @param {string} category - The category for styling (e.g., 'success', 'error').
+ */
 function showNotificationMessage(message, category) {
     const notificationContainer = document.getElementById('notification-container');
     // Create a new notification element
@@ -161,7 +192,11 @@ function showNotificationMessage(message, category) {
     }, 5000); // 5000 milliseconds (5 seconds) in this example
 }
 
-
+/**
+ * Schedules a notification for a specific task based on its ID.
+ *
+ * @param {string} task_id - The ID of the task to schedule a notification for.
+ */
 function scheduleNotification(task_id) {
     // Check if the browser supports the Notification API
     if ("Notification" in window) {
@@ -187,6 +222,11 @@ function scheduleNotification(task_id) {
     }
 }
 
+/**
+ * Fetches task data for a given task ID and displays a notification.
+ *
+ * @param {string} task_id - The ID of the task.
+ */
 function showNotification(task_id) {
     // Fetch task data for the given task_id
     fetch(`/get_task/${task_id}`)

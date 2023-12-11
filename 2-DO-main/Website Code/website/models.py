@@ -1,27 +1,84 @@
-from . import db #imports from website our db object
-from flask_login import UserMixin #Helps logs users in
+"""
+Database Models for Flask Application
+
+This module defines the database models for the Flask application using SQLAlchemy.
+
+Modules:
+    - db: SQLAlchemy object for database interaction.
+    - UserMixin: Helper class for user authentication with Flask-Login.
+    - func: SQL functions from SQLAlchemy.
+
+Classes:
+    - Task: Database model for tasks.
+    - User: Database model for users, extends UserMixin for Flask-Login.
+
+Attributes (Task):
+    - id (int): Primary key for the task.
+    - user_id (int): Foreign key referencing the user who created the task.
+    - title (str): Title of the task.
+    - description (str): Description or notes for the task.
+    - due_date (str): Due date in YYYY-MM-DD format.
+    - tag (str): Task tag.
+    - priority (str): Task priority ('Low', 'Medium', 'High').
+    - status (bool): Task status (False for incomplete, True for complete).
+    - reminder_time (str): Reminder time.
+
+Attributes (User):
+    - id (int): Primary key for the user.
+    - email (str): User email (unique).
+    - password (str): User password.
+    - first_name (str): User first name.
+    - last_name (str): User last name.
+    - tasks (relationship): One-to-Many relationship with Task.
+
+Usage:
+    Import this module in the Flask application to define the database models.
+"""
+
+from . import db  # imports from the website our db object
+from flask_login import UserMixin  # Helps logs users in
 from sqlalchemy.sql import func
 
-#Creating Database Model
 class Task(db.Model):
-    id = db.Column(db.Integer, primary_key=True) #ID will be incremented on its own
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id')) #Foreign key is the user.id that created the task
-    title = db.Column(db.String(1000)) #This will be the title of the task that was created
-    description = db.Column(db.String(10000)) #The user can add notes and detail to tasks that they are creating
-    ## MIGHT HAVE TO CHANGE HOW THE TIME & DATE TYPES ARE HELD IN THE DATABASE
-    # MIGHT CHANGE TO STRING FOR THE MEAN TIME
-    #due_time = db.Column(db.DateTime()) # HH:MM:SS.ssss format
-    due_date = db.Column(db.String(40)) # YYYY-MM-DD Format || The HTML is in MM/
-    tag = db.Column(db.String(6)) 
-    priority = db.Column(db.String(6)) #should only be 'Low', 'Medium', 'High'
-    status = db.Column(db.Boolean, default=False) #False for incomplete, True for complete
+    """
+    Database model for tasks.
+
+    Attributes:
+        id (int): Primary key for the task.
+        user_id (int): Foreign key referencing the user who created the task.
+        title (str): Title of the task.
+        description (str): Description or notes for the task.
+        due_date (str): Due date in YYYY-MM-DD format.
+        tag (str): Task tag.
+        priority (str): Task priority ('Low', 'Medium', 'High').
+        status (bool): Task status (False for incomplete, True for complete).
+        reminder_time (str): Reminder time.
+    """
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    title = db.Column(db.String(1000))
+    description = db.Column(db.String(10000))
+    due_date = db.Column(db.String(40))
+    tag = db.Column(db.String(6))
+    priority = db.Column(db.String(6))
+    status = db.Column(db.Boolean, default=False)
     reminder_time = db.Column(db.String(40))
 
-
 class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True) #ID will be incremented on its own
-    email = db.Column(db.String(150), unique=True) #No user can have the same emial as another user that exists
+    """
+    Database model for users.
+
+    Attributes:
+        id (int): Primary key for the user.
+        email (str): User email (unique).
+        password (str): User password.
+        first_name (str): User first name.
+        last_name (str): User last name.
+        tasks (relationship): One-to-Many relationship with Task.
+    """
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
     last_name = db.Column(db.String(150))
-    tasks = db.relationship('Task') #Tells Flask and SQL to add this relationship to task.id
+    tasks = db.relationship('Task')  
